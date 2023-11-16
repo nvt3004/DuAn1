@@ -16,6 +16,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.basic.BasicBorders;
 import javax.swing.plaf.metal.MetalBorders;
 
+
+
+
+
+
+
 public class Form10 extends javax.swing.JPanel {
 
     public Form10() {
