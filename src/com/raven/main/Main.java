@@ -24,6 +24,9 @@ import com.raven.swing.icon.IconFontSwing;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import net.miginfocom.swing.MigLayout;
 import org.jdesktop.animation.timing.Animator;
 import org.jdesktop.animation.timing.TimingTarget;
@@ -74,7 +77,11 @@ public class Main extends javax.swing.JFrame {
                 } else if (menuIndex == 7) {
                     main.showForm(new Form7());
                 } else if (menuIndex == 8) {
-                    main.showForm(new Form8());
+                    try {
+                        main.showForm(new Form8());
+                    } catch (ParseException ex) {
+                        Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 } else if (menuIndex == 9) {
                     main.showForm(new Form9());
                 } else if (menuIndex == 13) {

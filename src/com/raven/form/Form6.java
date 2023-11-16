@@ -12,6 +12,14 @@ import java.awt.Color;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+
+
+
+
+
+
+
+
 public class Form6 extends javax.swing.JPanel {
 
     public Form6() {
