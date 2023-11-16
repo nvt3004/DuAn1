@@ -4,7 +4,6 @@ import com.raven.dialog.Message;
 import com.raven.main.Main;
 import com.raven.model.ModelCard;
 import com.raven.model.ModelStudent;
-import com.raven.model.ModelPhieuNhapChiTiet;
 import com.raven.swing.icon.GoogleMaterialDesignIcons;
 import com.raven.swing.icon.IconFontSwing;
 import com.raven.swing.noticeboard.ModelNoticeBoard;
@@ -20,8 +19,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellEditor;
-import com.raven.swing.table.EventActionPhieuNhapChiTiet;
-import com.raven.swing.table.ModelActionPhieuNhapChiTiet;
 import com.raven.swing.table.TableActionCellRender;
 import javax.swing.table.DefaultTableModel;
 import com.raven.swing.table.TableActionEvent;
@@ -109,27 +106,7 @@ public class Form2HoaDon extends javax.swing.JPanel {
 //        table1.addRow(new ModelStudent(new ImageIcon(getClass().getResource("/com/raven/icon/profile2.jpg")), "Bora", "Male", "C#", 300).toRowTable(eventAction));
 //        table1.addRow(new ModelStudent(new ImageIcon(getClass().getResource("/com/raven/icon/profile2.jpg")), "Bora", "Male", "C#", 300).toRowTable(eventAction));
 
-        EventActionPhieuNhapChiTiet eventActionPhieuNhapChiTiet = new EventActionPhieuNhapChiTiet() {
-
-            @Override
-            public void delete(ModelPhieuNhapChiTiet pnct) {
-                if (showMessage("Delete Student : " + pnct.getMaSP())) {
-                    System.out.println("User click OK");
-                } else {
-                    System.out.println("User click Cancel");
-                }
-            }
-
-            @Override
-            public void update(ModelPhieuNhapChiTiet pnct) {
-                if (showMessage("Update Student : " + pnct.getMaSP())) {
-                    System.out.println("User click OK");
-                } else {
-                    System.out.println("User click Cancel");
-                }
-            }
-        };
-
+      
         table2.addRow(new Object[]{32124564, 1, "Gấu nâu", 4000, "10%",3600, 1,3600});
         table2.addRow(new Object[]{"", 2, "Móc khóa nhện", 3000, 0, 6000, 2, 6000});
         table2.addRow(new Object[]{12346578, 3, "Bình nước BP", 5000, "5%", 4500, 5, 22500});
@@ -649,7 +626,7 @@ public class Form2HoaDon extends javax.swing.JPanel {
 
     private void lblThemSanPhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThemSanPhamMouseClicked
         // TODO add your handling code here:
-
+table2.addRow(null);
     }//GEN-LAST:event_lblThemSanPhamMouseClicked
     public class CustomTableCellRenderer extends DefaultTableCellRenderer {
 

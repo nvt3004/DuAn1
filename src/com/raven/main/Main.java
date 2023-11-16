@@ -6,10 +6,10 @@ import com.raven.component.Menu_1;
 import com.raven.event.EventMenuSelected_1;
 import com.raven.event.EventShowPopupMenu;
 import com.raven.form.Form1;
-import com.raven.form.Form2;
+import com.raven.form.Form2HoaDon;
 import com.raven.form.Form3;
 import com.raven.form.Form4;
-import com.raven.form.Form5;
+import com.raven.form.Form5PhieuNhap;
 import com.raven.form.Form6;    
 import com.raven.form.Form7;
 import com.raven.form.Form8;
@@ -65,13 +65,13 @@ public class Main extends javax.swing.JFrame {
                 } else if (menuIndex == 1) {
                     main.showForm(new Form1());
                 } else if (menuIndex == 2) {
-                    main.showForm(new Form2());
+                    main.showForm(new Form2HoaDon());
                 } else if (menuIndex == 3) {
                     main.showForm(new Form3());
                 } else if (menuIndex == 4) {
                     main.showForm(new Form4());
                 } else if (menuIndex == 5) {
-                    main.showForm(new Form5());
+                    main.showForm(new Form5PhieuNhap());
                 } else if (menuIndex == 6) {
                     main.showForm(new Form_1());
                 } else if (menuIndex == 7) {
