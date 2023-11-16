@@ -606,6 +606,9 @@ public class Form2HoaDon extends javax.swing.JPanel {
 //        first();
     }//GEN-LAST:event_btnFirst1ActionPerformed
 
+    
+    
+    
     private void btnPrev1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrev1ActionPerformed
         // TODO add your handling code here:
 //        prev();
