@@ -64,6 +64,7 @@ public class Main extends javax.swing.JFrame {
 //                        } else if (subMenuIndex == 1) {
 //                            main.showForm(new Form1CaiNayBo());
 //                        }
+ 
                 } else if (menuIndex == 1) {
                     main.showForm(new Form1SanPham());
                 } else if (menuIndex == 2) {
