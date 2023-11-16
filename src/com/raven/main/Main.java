@@ -7,7 +7,7 @@ import com.raven.component.Header_1;
 import com.raven.component.Menu_1;
 import com.raven.event.EventMenuSelected_1;
 import com.raven.event.EventShowPopupMenu;
-import com.raven.form.Form1;
+import com.raven.form.Form1SanPham;
 import com.raven.form.Form2HoaDon;
 import com.raven.form.Form3;
 import com.raven.form.Form4;
@@ -15,7 +15,7 @@ import com.raven.form.Form5PhieuNhap;
 import com.raven.form.Form6;    
 import com.raven.form.Form7;
 import com.raven.form.Form8;
-import com.raven.form.Form9;
+import com.raven.form.Form9NhanVien;
 import com.raven.form.Form_1;
 import com.raven.form.Form_Home;
 import com.raven.form.MainForm_1;
@@ -62,10 +62,10 @@ public class Main extends javax.swing.JFrame {
 //                        if (subMenuIndex == 0) {
                     main.showForm(new Form_Home());
 //                        } else if (subMenuIndex == 1) {
-//                            main.showForm(new Form1());
+//                            main.showForm(new Form1CaiNayBo());
 //                        }
                 } else if (menuIndex == 1) {
-                    main.showForm(new Form1());
+                    main.showForm(new Form1SanPham());
                 } else if (menuIndex == 2) {
                     main.showForm(new Form2HoaDon());
                 } else if (menuIndex == 3) {
@@ -85,7 +85,7 @@ public class Main extends javax.swing.JFrame {
                         Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else if (menuIndex == 9) {
-                    main.showForm(new Form9());
+                    main.showForm(new Form9NhanVien());
                 } else if (menuIndex == 13) {
                     System.exit(0);
                 }

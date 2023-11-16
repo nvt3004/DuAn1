@@ -12,9 +12,9 @@ import java.awt.Color;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-public class Form9 extends javax.swing.JPanel {
+public class Form9NhanVien extends javax.swing.JPanel {
 
-    public Form9() {
+    public Form9NhanVien() {
         initComponents();
         table1.fixTable(jScrollPane1);
         setOpaque(false);

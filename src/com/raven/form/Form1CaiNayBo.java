@@ -13,9 +13,9 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 
-public class Form1 extends javax.swing.JPanel {
+public class Form1CaiNayBo extends javax.swing.JPanel {
 
-    public Form1() {
+    public Form1CaiNayBo() {
         initComponents();
         table1.fixTable(jScrollPane1);
         setOpaque(false);
