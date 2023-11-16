@@ -14,6 +14,12 @@ import javax.swing.ImageIcon;
 
 
 
+
+
+
+
+
+
 public class Form1 extends javax.swing.JPanel {
 
     public Form1() {
