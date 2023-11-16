@@ -83,6 +83,6 @@ public class ModelNhaCungCap {
     private String maSoThue;
     
     public Object[] toRowTable(EventActionNCC event) {
-        return new Object[]{maNCC, tenNCC, diaChi, sdt, email, maSoThue, new ModelActionNCC(this, event)};
+        return new Object[]{maNCC, tenNCC, diaChi, sdt, email, maSoThue};
     }
 }
