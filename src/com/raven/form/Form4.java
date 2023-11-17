@@ -65,6 +65,8 @@ public class Form4 extends javax.swing.JPanel {
         table1.addRow(new ModelNhaCungCap(2, "Dior", "Quận 1, Tp.HCM", "0387023626", "gucci@gmail.com", "07891234").toRowTable(eventAction));
         table1.addRow(new ModelNhaCungCap(3, "H&M", "Quận 1, Tp.HCM", "0387023626", "gucci@gmail.com", "07891234").toRowTable(eventAction));
         table1.addRow(new ModelNhaCungCap(4, "Gucci", "Quận 1, Tp.HCM", "0387023626", "gucci@gmail.com", "07891234").toRowTable(eventAction));
+    
+//    Xin chào
     }
 
     private boolean showMessage(String message) {
