@@ -40,7 +40,7 @@ public class Form2HoaDon extends javax.swing.JPanel {
 
         table2.setBackground(Color.white);
 //        table2.
-
+   table2.setBackground(new java.awt.Color(102, 255, 102));
     }
 
     private void initData() {
@@ -159,14 +159,14 @@ public class Form2HoaDon extends javax.swing.JPanel {
         table2 = new com.raven.swing.table.Table();
         pnlHoaDon2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        btnThem2 = new javax.swing.JButton();
-        btnSua1 = new javax.swing.JButton();
-        btnXoa1 = new javax.swing.JButton();
-        btnMoi1 = new javax.swing.JButton();
-        btnFirst1 = new javax.swing.JButton();
-        btnPrev1 = new javax.swing.JButton();
-        btnNext1 = new javax.swing.JButton();
-        btnLast1 = new javax.swing.JButton();
+        button1 = new com.raven.swing.Button();
+        button3 = new com.raven.swing.Button();
+        button2 = new com.raven.swing.Button();
+        button4 = new com.raven.swing.Button();
+        btnDau = new com.raven.swing.Button();
+        btnLui = new com.raven.swing.Button();
+        btnToi = new com.raven.swing.Button();
+        btnCuoi = new com.raven.swing.Button();
         jTextField2 = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(1614, 1080));
@@ -375,7 +375,6 @@ public class Form2HoaDon extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblThemSanPham)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -392,7 +391,7 @@ public class Form2HoaDon extends javax.swing.JPanel {
                             .addComponent(lblSoLuong7, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel20)
-                        .addGap(0, 11, Short.MAX_VALUE)))
+                        .addGap(0, 17, Short.MAX_VALUE)))
                 .addGap(8, 8, 8)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSoLuong8)
@@ -418,8 +417,8 @@ public class Form2HoaDon extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        table2.setGridColor(new java.awt.Color(255, 255, 255));
-        table2.setSelectionBackground(new java.awt.Color(239, 244, 255));
+        table2.setGridColor(new java.awt.Color(153, 153, 153));
+        table2.setSelectionBackground(new java.awt.Color(204, 255, 204));
         jScrollPane3.setViewportView(table2);
         if (table2.getColumnModel().getColumnCount() > 0) {
             table2.getColumnModel().getColumn(8).setMinWidth(74);
@@ -465,73 +464,62 @@ public class Form2HoaDon extends javax.swing.JPanel {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new java.awt.GridLayout(2, 4));
 
-        btnThem2.setText("Thêm");
-        btnThem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThem2ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btnThem2);
+        button1.setBackground(new java.awt.Color(204, 204, 255));
+        button1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        button1.setText("Thêm");
+        jPanel3.add(button1);
 
-        btnSua1.setText("Sửa");
-        btnSua1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSua1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btnSua1);
+        button3.setBackground(new java.awt.Color(204, 204, 255));
+        button3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        button3.setText("Cập nhật");
+        jPanel3.add(button3);
 
-        btnXoa1.setText("Xóa");
-        btnXoa1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXoa1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btnXoa1);
+        button2.setBackground(new java.awt.Color(204, 204, 255));
+        button2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        button2.setText("Xóa");
+        jPanel3.add(button2);
 
-        btnMoi1.setText("Mới");
-        btnMoi1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMoi1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btnMoi1);
+        button4.setBackground(new java.awt.Color(204, 204, 255));
+        button4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        button4.setText("Mới");
+        jPanel3.add(button4);
 
-        btnFirst1.setBackground(new java.awt.Color(204, 204, 255));
-        btnFirst1.setText("|<");
-        btnFirst1.addActionListener(new java.awt.event.ActionListener() {
+        btnDau.setBackground(new java.awt.Color(204, 204, 255));
+        btnDau.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        btnDau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/first.png"))); // NOI18N
+        btnDau.setMaximumSize(new java.awt.Dimension(18, 26));
+        btnDau.setMinimumSize(new java.awt.Dimension(18, 26));
+        btnDau.setPreferredSize(new java.awt.Dimension(18, 26));
+        btnDau.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFirst1ActionPerformed(evt);
+                btnDauActionPerformed(evt);
             }
         });
-        jPanel3.add(btnFirst1);
+        jPanel3.add(btnDau);
 
-        btnPrev1.setBackground(new java.awt.Color(204, 204, 255));
-        btnPrev1.setText("<<");
-        btnPrev1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPrev1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btnPrev1);
+        btnLui.setBackground(new java.awt.Color(204, 204, 255));
+        btnLui.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        btnLui.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/back.png"))); // NOI18N
+        btnLui.setMaximumSize(new java.awt.Dimension(18, 26));
+        btnLui.setMinimumSize(new java.awt.Dimension(18, 26));
+        btnLui.setPreferredSize(new java.awt.Dimension(18, 26));
+        jPanel3.add(btnLui);
 
-        btnNext1.setBackground(new java.awt.Color(204, 204, 255));
-        btnNext1.setText(">>");
-        btnNext1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNext1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btnNext1);
+        btnToi.setBackground(new java.awt.Color(204, 204, 255));
+        btnToi.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        btnToi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/next1.png"))); // NOI18N
+        btnToi.setMaximumSize(new java.awt.Dimension(18, 26));
+        btnToi.setMinimumSize(new java.awt.Dimension(18, 26));
+        btnToi.setPreferredSize(new java.awt.Dimension(18, 26));
+        jPanel3.add(btnToi);
 
-        btnLast1.setBackground(new java.awt.Color(204, 204, 255));
-        btnLast1.setText(">|");
-        btnLast1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLast1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btnLast1);
+        btnCuoi.setBackground(new java.awt.Color(204, 204, 255));
+        btnCuoi.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        btnCuoi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/last.png"))); // NOI18N
+        btnCuoi.setMaximumSize(new java.awt.Dimension(18, 26));
+        btnCuoi.setMinimumSize(new java.awt.Dimension(18, 26));
+        btnCuoi.setPreferredSize(new java.awt.Dimension(18, 26));
+        jPanel3.add(btnCuoi);
 
         jTextField2.setForeground(new java.awt.Color(102, 102, 102));
         jTextField2.setText("Tìm hóa đơn theo mã");
@@ -581,48 +569,9 @@ public class Form2HoaDon extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMaNhaCCActionPerformed
 
-    private void btnThem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem2ActionPerformed
-        // TODO add your handling code here:
-//        insert();
-    }//GEN-LAST:event_btnThem2ActionPerformed
-
-    private void btnSua1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua1ActionPerformed
-        // TODO add your handling code here:
-//        update();
-    }//GEN-LAST:event_btnSua1ActionPerformed
-
-    private void btnXoa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoa1ActionPerformed
-        // TODO add your handling code here:
-//        delete();
-    }//GEN-LAST:event_btnXoa1ActionPerformed
-
-    private void btnMoi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoi1ActionPerformed
-        // TODO add your handling code here:
-//     /
-    }//GEN-LAST:event_btnMoi1ActionPerformed
-
-    private void btnFirst1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirst1ActionPerformed
-        // TODO add your handling code here:
-//        first();
-    }//GEN-LAST:event_btnFirst1ActionPerformed
-
     
     
     
-    private void btnPrev1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrev1ActionPerformed
-        // TODO add your handling code here:
-//        prev();
-    }//GEN-LAST:event_btnPrev1ActionPerformed
-
-    private void btnNext1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext1ActionPerformed
-        // TODO add your handling code here:
-//        next();
-    }//GEN-LAST:event_btnNext1ActionPerformed
-
-    private void btnLast1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLast1ActionPerformed
-//        last();
-    }//GEN-LAST:event_btnLast1ActionPerformed
-
     private void txtNgayTaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNgayTaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNgayTaoActionPerformed
@@ -631,27 +580,31 @@ public class Form2HoaDon extends javax.swing.JPanel {
         // TODO add your handling code here:
 table2.addRow(null);
     }//GEN-LAST:event_lblThemSanPhamMouseClicked
+
+    private void btnDauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDauActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDauActionPerformed
     public class CustomTableCellRenderer extends DefaultTableCellRenderer {
 
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
             Component cellComponent = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
             ((JComponent) cellComponent).setBackground((Color.white));
             ((JComponent) cellComponent).setForeground((Color.black));
-            Border border = BorderFactory.createMatteBorder(2, 2, 3, 2, new Color(51,204,255));
+            Border border = BorderFactory.createMatteBorder(5, 5, 5, 5, new Color(204,255,204));
             ((JComponent) cellComponent).setBorder(border);
             return cellComponent;
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnFirst1;
-    private javax.swing.JButton btnLast1;
-    private javax.swing.JButton btnMoi1;
-    private javax.swing.JButton btnNext1;
-    private javax.swing.JButton btnPrev1;
-    private javax.swing.JButton btnSua1;
+    private com.raven.swing.Button btnCuoi;
+    private com.raven.swing.Button btnDau;
+    private com.raven.swing.Button btnLui;
     private javax.swing.JButton btnThanhToan2;
-    private javax.swing.JButton btnThem2;
-    private javax.swing.JButton btnXoa1;
+    private com.raven.swing.Button btnToi;
+    private com.raven.swing.Button button1;
+    private com.raven.swing.Button button2;
+    private com.raven.swing.Button button3;
+    private com.raven.swing.Button button4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
