@@ -16,8 +16,10 @@ public class TableActionCellRender extends DefaultTableCellRenderer {
     public Component getTableCellRendererComponent(JTable jtable, Object o, boolean isSeleted, boolean bln1, int row, int column) {
         Component com = super.getTableCellRendererComponent(jtable, o, isSeleted, bln1, row, column);
         PanelAc action = new PanelAc();
-        if (isSeleted == false && row % 2 == 0) {
-            action.setBackground(Color.WHITE);
+        if (isSeleted == false 
+//                && row % 2 == 0
+                ) {
+            action.setBackground(Color.white);
         } else {
             action.setBackground(com.getBackground());
         }
