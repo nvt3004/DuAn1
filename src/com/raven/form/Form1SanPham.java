@@ -20,8 +20,8 @@ public class Form1SanPham extends javax.swing.JPanel {
         setOpaque(false);
         initData();
     }
-
-    private void initData() {
+    
+      private void initData() {
         initTableData();
     }
 
