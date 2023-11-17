@@ -1,28 +1,34 @@
 package com.raven.form;
 
+import com.raven.dao.NhanVienDAO;
 import com.raven.dialog.Message;
 import com.raven.main.Main;
 import com.raven.model.ModelCard;
+import com.raven.model.ModelNhanVien;
 import com.raven.model.ModelStudent;
 import com.raven.swing.icon.GoogleMaterialDesignIcons;
 import com.raven.swing.icon.IconFontSwing;
 import com.raven.swing.noticeboard.ModelNoticeBoard;
 import com.raven.swing.table.EventAction;
 import java.awt.Color;
+import java.util.List;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 public class Form9NhanVien extends javax.swing.JPanel {
 
+    NhanVienDAO nvDAO = new NhanVienDAO();
     public Form9NhanVien() {
         initComponents();
-        table1.fixTable(jScrollPane1);
+        tblNhanVien.fixTable(jScrollPane1);
         setOpaque(false);
         initData();
     }
 
     private void initData() {
         initTableData();
+        fillTableData();
     }
 
     private void initTableData() {
@@ -61,7 +67,21 @@ public class Form9NhanVien extends javax.swing.JPanel {
     }
 
 
-
+    private void fillTableData() {
+        DefaultTableModel model = (DefaultTableModel) tblNhanVien.getModel();
+        model.setRowCount(0); // xóa all các hàng trên Jtable
+        try {
+            List<ModelNhanVien> list = nvDAO.selectAll(); //đọc dữ liệu từ csdl
+            for (ModelNhanVien nv : list) {
+                Object[] row = {
+                    nv.getMaNV(),nv.getHoTen(),nv.getVaiTro(),nv.getEmail(),nv.getSoDienThoai()
+                };
+                model.addRow(row);//Thêm 1 hàng vào JTable
+            }
+        } catch (Exception ex) {
+            
+        }
+    }
 
 
     private boolean showMessage(String message) {
@@ -76,7 +96,7 @@ public class Form9NhanVien extends javax.swing.JPanel {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
-        table1 = new com.raven.swing.table.Table();
+        tblNhanVien = new com.raven.swing.table.Table();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -111,7 +131,7 @@ public class Form9NhanVien extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1614, 1080));
 
-        table1.setModel(new javax.swing.table.DefaultTableModel(
+        tblNhanVien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -127,7 +147,7 @@ public class Form9NhanVien extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(table1);
+        jScrollPane1.setViewportView(tblNhanVien);
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLabel1.setText("QUẢN LÝ NHÂN VIÊN");
@@ -414,6 +434,6 @@ public class Form9NhanVien extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private com.raven.swing.table.Table table1;
+    private com.raven.swing.table.Table tblNhanVien;
     // End of variables declaration//GEN-END:variables
 }

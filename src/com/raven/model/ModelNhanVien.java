@@ -13,12 +13,12 @@ import javax.swing.Icon;
 public class ModelNhanVien {
     private Icon icon;
     private String maNV,hoTen,matKhau,email,soDienThoai;
-    private boolean vaiTro;
+    private String vaiTro,hinh;
 
     public ModelNhanVien() {
     }
 
-    public ModelNhanVien(Icon icon, String maNV, String hoTen, String matKhau, String email, String soDienThoai, boolean vaiTro) {
+    public ModelNhanVien(Icon icon, String maNV, String hoTen, String matKhau, String email, String soDienThoai, String vaiTro,String hinh) {
         this.icon = icon;
         this.maNV = maNV;
         this.hoTen = hoTen;
@@ -26,6 +26,15 @@ public class ModelNhanVien {
         this.email = email;
         this.soDienThoai = soDienThoai;
         this.vaiTro = vaiTro;
+        this.hinh=hinh;
+    }
+
+    public String getHinh() {
+        return hinh;
+    }
+
+    public void setHinh(String hinh) {
+        this.hinh = hinh;
     }
 
     public Icon getIcon() {
@@ -36,6 +45,7 @@ public class ModelNhanVien {
         this.icon = icon;
     }
 
+    
     public String getMaNV() {
         return maNV;
     }
@@ -76,13 +86,18 @@ public class ModelNhanVien {
         this.soDienThoai = soDienThoai;
     }
 
-    public boolean isVaiTro() {
+    public String getVaiTro() {
         return vaiTro;
     }
 
-    public void setVaiTro(boolean vaiTro) {
+    public void setVaiTro(String vaiTro) {
         this.vaiTro = vaiTro;
     }
+
+//    public Object[] toRowTable(EventAction event) {
+////        DecimalFormat df = new DecimalFormat("$#,##0.00");
+//        return new Object[]{new ModelProfile(icon, maNV), hoTen, vaiTro, email,soDienThoai, new ModelActionNV(this, event)};
+//    }
     
 }
 
