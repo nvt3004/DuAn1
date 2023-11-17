@@ -29,6 +29,7 @@ public class Form2HoaDon extends javax.swing.JPanel {
     public Form2HoaDon() {
         initComponents();
         table1.fixTable(jScrollPane1);
+
         setOpaque(false);
         initData();
         System.out.println(table2.getRowHeight());
@@ -157,7 +158,6 @@ public class Form2HoaDon extends javax.swing.JPanel {
         jLabel21 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         table2 = new com.raven.swing.table.Table();
-        pnlHoaDon2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         button1 = new com.raven.swing.Button();
         button3 = new com.raven.swing.Button();
@@ -448,19 +448,6 @@ public class Form2HoaDon extends javax.swing.JPanel {
 
         tabHoaDon1.addTab("Hóa đơn", jPanel4);
 
-        javax.swing.GroupLayout pnlHoaDon2Layout = new javax.swing.GroupLayout(pnlHoaDon2);
-        pnlHoaDon2.setLayout(pnlHoaDon2Layout);
-        pnlHoaDon2Layout.setHorizontalGroup(
-            pnlHoaDon2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 645, Short.MAX_VALUE)
-        );
-        pnlHoaDon2Layout.setVerticalGroup(
-            pnlHoaDon2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 644, Short.MAX_VALUE)
-        );
-
-        tabHoaDon1.addTab("Thêm", pnlHoaDon2);
-
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new java.awt.GridLayout(2, 4));
 
@@ -561,29 +548,29 @@ public class Form2HoaDon extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtMaPNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaPNActionPerformed
+    
+    
+    
+    private void btnDauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDauActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtMaPNActionPerformed
+    }//GEN-LAST:event_btnDauActionPerformed
+
+    private void lblThemSanPhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThemSanPhamMouseClicked
+        // TODO add your handling code here:
+        table2.addRow(null);
+    }//GEN-LAST:event_lblThemSanPhamMouseClicked
+
+    private void txtNgayTaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNgayTaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNgayTaoActionPerformed
 
     private void txtMaNhaCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaNhaCCActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMaNhaCCActionPerformed
 
-    
-    
-    
-    private void txtNgayTaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNgayTaoActionPerformed
+    private void txtMaPNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaPNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNgayTaoActionPerformed
-
-    private void lblThemSanPhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThemSanPhamMouseClicked
-        // TODO add your handling code here:
-table2.addRow(null);
-    }//GEN-LAST:event_lblThemSanPhamMouseClicked
-
-    private void btnDauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDauActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDauActionPerformed
+    }//GEN-LAST:event_txtMaPNActionPerformed
     public class CustomTableCellRenderer extends DefaultTableCellRenderer {
 
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
@@ -631,7 +618,6 @@ table2.addRow(null);
     private javax.swing.JLabel lblSoLuong7;
     private javax.swing.JLabel lblSoLuong8;
     private javax.swing.JLabel lblThemSanPham;
-    private javax.swing.JPanel pnlHoaDon2;
     private javax.swing.JTabbedPane tabHoaDon1;
     private com.raven.swing.table.Table table1;
     private com.raven.swing.table.Table table2;
