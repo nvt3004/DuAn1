@@ -26,6 +26,10 @@ import com.raven.swing.table.TableActionCellEditor;
 
 public class Form2HoaDon extends javax.swing.JPanel {
 
+    
+    
+    
+    
     public Form2HoaDon() {
         initComponents();
         table1.fixTable(jScrollPane1);
