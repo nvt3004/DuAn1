@@ -29,13 +29,10 @@ public class ModelNhanVien {
         this.hinh=hinh;
     }
 
-    public String getHinh() {
-        return hinh;
-    }
-
-    public void setHinh(String hinh) {
-        this.hinh = hinh;
-    }
+//    public Object[] toRowTable(EventAction event) {
+////        DecimalFormat df = new DecimalFormat("$#,##0.00");
+//        return new Object[]{new ModelProfile(icon, maNV), hoTen, vaiTro, email,soDienThoai, new ModelActionNV(this, event)};
+//    }
 
     public Icon getIcon() {
         return icon;
@@ -45,7 +42,6 @@ public class ModelNhanVien {
         this.icon = icon;
     }
 
-    
     public String getMaNV() {
         return maNV;
     }
@@ -94,10 +90,13 @@ public class ModelNhanVien {
         this.vaiTro = vaiTro;
     }
 
-//    public Object[] toRowTable(EventAction event) {
-////        DecimalFormat df = new DecimalFormat("$#,##0.00");
-//        return new Object[]{new ModelProfile(icon, maNV), hoTen, vaiTro, email,soDienThoai, new ModelActionNV(this, event)};
-//    }
+    public String getHinh() {
+        return hinh;
+    }
+
+    public void setHinh(String hinh) {
+        this.hinh = hinh;
+    }
     
 }
 
