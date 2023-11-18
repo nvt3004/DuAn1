@@ -90,8 +90,8 @@ public class Form9NhanVien extends javax.swing.JPanel {
             rdoNVKho.setSelected(true);
         }
          if (nv.getHinhAnh()!= null) {
-            lblAnh.setToolTipText(nv.getHinhAnh());
-            lblAnh.setIcon(XImage.read(nv.getHinhAnh()));
+            lblHinhAnh.setToolTipText(nv.getHinhAnh());
+            lblHinhAnh.setIcon(XImage.read(nv.getHinhAnh()));
         }
 
     }
@@ -110,8 +110,7 @@ public class Form9NhanVien extends javax.swing.JPanel {
         } else {
             nv.setVaiTro("Nhân viên kho");
         }
-           nv.setHinhAnh(lblAnh.getToolTipText());
-
+           nv.setHinhAnh(lblHinhAnh.getToolTipText());
         return nv;
     }
 
@@ -199,10 +198,10 @@ public class Form9NhanVien extends javax.swing.JPanel {
                 new ImageIcon(imagePath)
                         .getImage()
                         .getScaledInstance(
-                                lblAnh.getWidth(),
-                                lblAnh.getHeight(),
+                                lblHinhAnh.getWidth(),
+                                lblHinhAnh.getHeight(),
                                 Image.SCALE_DEFAULT));
-        lblAnh.setIcon(imageIcon);
+        lblHinhAnh.setIcon(imageIcon);
     }
 
     private void chonAnh() {
@@ -210,8 +209,8 @@ public class Form9NhanVien extends javax.swing.JPanel {
             File file = fileChooser.getSelectedFile();
             XImage.save(file);//Lưu hình vào thư mục logos
             ImageIcon icon = XImage.read(file.getName());//đọc hình từ logos
-            lblAnh.setIcon(icon);
-            lblAnh.setToolTipText(file.getName());//Giữ hình trong tooltip
+            lblHinhAnh.setIcon(icon);
+            lblHinhAnh.setToolTipText(file.getName());//Giữ hình trong tooltip
 //        }
 //        JFileChooser filePane = new JFileChooser("G:\\DuAn1_huynh\\DuAn1\\src\\com\raven\\icon\\");
 //        FileFilter imageFilter = new FileNameExtensionFilter(
@@ -244,8 +243,8 @@ public class Form9NhanVien extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        lblAnh = new com.raven.swing.ImageAvatar();
         jLabel3 = new javax.swing.JLabel();
+        lblHinhAnh = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         lblMaNhanVien = new javax.swing.JLabel();
         txtMa = new javax.swing.JTextField();
@@ -284,7 +283,7 @@ public class Form9NhanVien extends javax.swing.JPanel {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, false, true
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -303,26 +302,29 @@ public class Form9NhanVien extends javax.swing.JPanel {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblAnh.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblAnhMouseClicked(evt);
-            }
-        });
-
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("HÌNH ẢNH");
+
+        lblHinhAnh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 255)));
+        lblHinhAnh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblHinhAnhMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
-                    .addComponent(lblAnh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(lblHinhAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,7 +332,8 @@ public class Form9NhanVien extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(lblAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(lblHinhAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
@@ -614,8 +617,8 @@ public class Form9NhanVien extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(423, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -645,10 +648,6 @@ public class Form9NhanVien extends javax.swing.JPanel {
     private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
         this.clearForm();
     }//GEN-LAST:event_btnMoiActionPerformed
-
-    private void lblAnhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAnhMouseClicked
-        this.chonAnh();
-    }//GEN-LAST:event_lblAnhMouseClicked
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         this.insert();
@@ -689,6 +688,10 @@ public class Form9NhanVien extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtTimKiemFocusLost
 
+    private void lblHinhAnhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHinhAnhMouseClicked
+        this.chonAnh();
+    }//GEN-LAST:event_lblHinhAnhMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCuoi;
     private javax.swing.JButton btnDau;
@@ -711,7 +714,7 @@ public class Form9NhanVien extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private com.raven.swing.ImageAvatar lblAnh;
+    private javax.swing.JLabel lblHinhAnh;
     private javax.swing.JLabel lblMaNhanVien;
     private javax.swing.JLabel lblMatKhau;
     private javax.swing.JLabel lblTenNhanVien;
