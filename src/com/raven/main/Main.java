@@ -10,6 +10,7 @@ import com.raven.event.EventShowPopupMenu;
 import com.raven.form.Form1SanPham;
 import com.raven.form.Form2HoaDon;
 import com.raven.form.Form3;
+import com.raven.form.Form3KhachHang;
 import com.raven.form.Form4;
 import com.raven.form.Form5PhieuNhap;
 import com.raven.form.Form6;    
@@ -70,7 +71,7 @@ public class Main extends javax.swing.JFrame {
                 } else if (menuIndex == 2) {
                     main.showForm(new Form2HoaDon());
                 } else if (menuIndex == 3) {
-                    main.showForm(new Form3());
+                    main.showForm(new Form3KhachHang());
                 } else if (menuIndex == 4) {
                     main.showForm(new Form4());
                 } else if (menuIndex == 5) {

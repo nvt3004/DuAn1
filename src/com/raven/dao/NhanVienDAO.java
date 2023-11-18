@@ -19,7 +19,7 @@ public class NhanVienDAO extends DuAnDAO<ModelNhanVien, String> {
     String INSERT_SQL = "insert into NhanVien(MaNV,MatKhau,HoTen,VaiTro,HinhAnh,Email,SoDienThoai) values(?,?,?,?,?,?,?)";
     String UPDATE_SQL = "update NhanVien set MatKhau=? ,HoTen=? ,VaiTro=? ,HinhAnh=? ,Email= ?,SoDienThoai=? where MaNV=?";
     String DELETE_SQL = "delete from NhanVien where MaNV=?";
-    String SELECT_ALL_SQL = "select manv, HoTen, VaiTro, HinhAnh,Email,SoDienThoai from NhanVien";
+    String SELECT_ALL_SQL = "select MaNV, HoTen, VaiTro, HinhAnh,Email,SoDienThoai from NhanVien";
     String SELECT_BY_ID = "select * from NhanVien where MaNV=?";
 
     @Override
@@ -86,8 +86,9 @@ public class NhanVienDAO extends DuAnDAO<ModelNhanVien, String> {
             throw new RuntimeException(e);
         }
     }
-        public List<ModelNhanVien> selectByKeyword(String keyword) {
-        String SQL = "select manv, HoTen, VaiTro, HinhAnh,Email,SoDienThoai from NhanVien WHERE HoTen LIKE ? or manv like ?";
-        return this.selectBySql(SQL, "%" + keyword + "%","%" + keyword + "%");
+
+    public List<ModelNhanVien> selectByKeyword(String keyword) {
+        String SQL = "select MaNV, HoTen, VaiTro, HinhAnh,Email,SoDienThoai from NhanVien WHERE HoTen LIKE ? or MaNV like ?";
+        return this.selectBySql(SQL, "%" + keyword + "%", "%" + keyword + "%");
     }
 }
