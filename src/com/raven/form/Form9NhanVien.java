@@ -25,8 +25,10 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JFileChooser;
 
 public class Form9NhanVien extends javax.swing.JPanel {
+
     MD5Hash md5 = new MD5Hash();
 
     NhanVienDAO nvDAO = new NhanVienDAO();
@@ -87,8 +89,11 @@ public class Form9NhanVien extends javax.swing.JPanel {
         } else {
             rdoNVKho.setSelected(true);
         }
-        this.hienThiHinhAnh(nv.getHinhAnh());
-        imagePath = nv.getHinhAnh();
+         if (nv.getHinhAnh()!= null) {
+            lblAnh.setToolTipText(nv.getHinhAnh());
+            lblAnh.setIcon(XImage.read(nv.getHinhAnh()));
+        }
+
     }
 
     private ModelNhanVien getForm() {
@@ -105,7 +110,8 @@ public class Form9NhanVien extends javax.swing.JPanel {
         } else {
             nv.setVaiTro("Nhân viên kho");
         }
-        nv.setHinhAnh(imagePath);
+           nv.setHinhAnh(lblAnh.getToolTipText());
+
         return nv;
     }
 
@@ -200,16 +206,24 @@ public class Form9NhanVien extends javax.swing.JPanel {
     }
 
     private void chonAnh() {
-        JFileChooser filePane = new JFileChooser("G:\\DuAn1_huynh\\DuAn1\\src\\com\raven\\icon\\");
-        FileFilter imageFilter = new FileNameExtensionFilter(
-                "Image files",
-                ImageIO.getReaderFileSuffixes());
-        filePane.setFileFilter(imageFilter);
-        int ketQua = filePane.showSaveDialog(this);
-        if (ketQua == JFileChooser.APPROVE_OPTION) {
-            File file = filePane.getSelectedFile();
-            imagePath = file.getPath();
-            this.hienThiHinhAnh(imagePath);
+        if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            XImage.save(file);//Lưu hình vào thư mục logos
+            ImageIcon icon = XImage.read(file.getName());//đọc hình từ logos
+            lblAnh.setIcon(icon);
+            lblAnh.setToolTipText(file.getName());//Giữ hình trong tooltip
+//        }
+//        JFileChooser filePane = new JFileChooser("G:\\DuAn1_huynh\\DuAn1\\src\\com\raven\\icon\\");
+//        FileFilter imageFilter = new FileNameExtensionFilter(
+//                "Image files",
+//                ImageIO.getReaderFileSuffixes());
+//        filePane.setFileFilter(imageFilter);
+//        int ketQua = filePane.showSaveDialog(this);
+//        if (ketQua == JFileChooser.APPROVE_OPTION) {
+//            File file = filePane.getSelectedFile();
+//            imagePath = file.getPath();
+//            this.hienThiHinhAnh(imagePath);
+//        }
         }
     }
 
@@ -224,6 +238,7 @@ public class Form9NhanVien extends javax.swing.JPanel {
     private void initComponents() {
 
         btnVaiTro = new javax.swing.ButtonGroup();
+        fileChooser = new javax.swing.JFileChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblNhanVien = new com.raven.swing.table.Table();
         jLabel1 = new javax.swing.JLabel();
@@ -232,12 +247,12 @@ public class Form9NhanVien extends javax.swing.JPanel {
         lblAnh = new com.raven.swing.ImageAvatar();
         jLabel3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        lblMaNhanVien = new javax.swing.JLabel();
         txtMa = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        lblTenNhanVien = new javax.swing.JLabel();
         txtTen = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        lblMatKhau = new javax.swing.JLabel();
         txtMatKhau = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -320,14 +335,14 @@ public class Form9NhanVien extends javax.swing.JPanel {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
-        jLabel2.setText("Mã nhân viên");
+        lblMaNhanVien.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        lblMaNhanVien.setText("Mã nhân viên");
 
-        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
-        jLabel4.setText("Tên nhân viên");
+        lblTenNhanVien.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        lblTenNhanVien.setText("Tên nhân viên");
 
-        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
-        jLabel5.setText("Mật khẩu");
+        lblMatKhau.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        lblMatKhau.setText("Mật khẩu");
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
         jLabel6.setText("Email");
@@ -361,18 +376,18 @@ public class Form9NhanVien extends javax.swing.JPanel {
                     .addComponent(txtSoDienThoai)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
+                            .addComponent(lblTenNhanVien)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(rdoQuanLy)
                                 .addGap(18, 18, 18)
                                 .addComponent(rdoNVThuNgan)
                                 .addGap(18, 18, 18)
-                                .addComponent(rdoNVKho)))
+                                .addComponent(rdoNVKho))
+                            .addComponent(lblMaNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -380,15 +395,15 @@ public class Form9NhanVien extends javax.swing.JPanel {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addComponent(lblMaNhanVien)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtMa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addComponent(jLabel4)
+                .addComponent(lblTenNhanVien)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addComponent(jLabel5)
+                .addComponent(lblMatKhau)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -653,7 +668,7 @@ public class Form9NhanVien extends javax.swing.JPanel {
     }//GEN-LAST:event_txtTimKiemKeyReleased
 
     private void txtTimKiemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTimKiemMouseEntered
-        
+
     }//GEN-LAST:event_txtTimKiemMouseEntered
 
     private void txtTimKiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyPressed
@@ -684,11 +699,9 @@ public class Form9NhanVien extends javax.swing.JPanel {
     private javax.swing.JButton btnTruoc;
     private javax.swing.ButtonGroup btnVaiTro;
     private javax.swing.JButton btnXoa;
+    private javax.swing.JFileChooser fileChooser;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -699,6 +712,9 @@ public class Form9NhanVien extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private com.raven.swing.ImageAvatar lblAnh;
+    private javax.swing.JLabel lblMaNhanVien;
+    private javax.swing.JLabel lblMatKhau;
+    private javax.swing.JLabel lblTenNhanVien;
     private javax.swing.JRadioButton rdoNVKho;
     private javax.swing.JRadioButton rdoNVThuNgan;
     private javax.swing.JRadioButton rdoQuanLy;
