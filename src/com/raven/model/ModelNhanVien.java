@@ -13,12 +13,12 @@ import javax.swing.Icon;
 public class ModelNhanVien {
     private Icon icon;
     private String maNV,hoTen,matKhau,email,soDienThoai;
-    private String vaiTro,hinh;
+    private String vaiTro,hinhAnh;
 
     public ModelNhanVien() {
     }
 
-    public ModelNhanVien(Icon icon, String maNV, String hoTen, String matKhau, String email, String soDienThoai, String vaiTro,String hinh) {
+    public ModelNhanVien(Icon icon, String maNV, String hoTen, String matKhau, String email, String soDienThoai, String vaiTro,String hinhAnh) {
         this.icon = icon;
         this.maNV = maNV;
         this.hoTen = hoTen;
@@ -26,7 +26,7 @@ public class ModelNhanVien {
         this.email = email;
         this.soDienThoai = soDienThoai;
         this.vaiTro = vaiTro;
-        this.hinh=hinh;
+        this.hinhAnh=hinhAnh;
     }
 
 //    public Object[] toRowTable(EventAction event) {
@@ -90,12 +90,12 @@ public class ModelNhanVien {
         this.vaiTro = vaiTro;
     }
 
-    public String getHinh() {
-        return hinh;
+    public String getHinhAnh() {
+        return hinhAnh;
     }
 
-    public void setHinh(String hinh) {
-        this.hinh = hinh;
+    public void setHinhAnh(String hinh) {
+        this.hinhAnh = hinh;
     }
     
 }

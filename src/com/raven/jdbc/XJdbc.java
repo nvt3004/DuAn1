@@ -16,8 +16,13 @@ import java.sql.SQLException;
  * @author ADMIN
  */
 public class XJdbc {
-    static String driver = SQLServerDriver.class.getName();
-    static String dburl = "jdbc:sqlserver://;instanceName=SQLEXPRESS;databaseName=ShopQuaLuuNiem;trustServerCertificate=true";
+
+//    static String driver = SQLServerDriver.class.getName();
+    static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+
+    static String dburl = "jdbc:sqlserver://localhost:1433;databaseName=ShopQuaLuuNiem;encrypt=true;trustServerCertificate=true;";
+
+//    static String dburl = "jdbc:sqlserver://;instanceName=SQLEXPRESS;databaseName=ShopQuaLuuNiem;trustServerCertificate=true";
     static String user = "sa";
     static String pass = "123456";
 
@@ -53,7 +58,7 @@ public class XJdbc {
         try {
             PreparedStatement stmt = getStmt(sql, args);
             try {
-                 stmt.executeUpdate();
+                stmt.executeUpdate();
             } finally {
                 stmt.getConnection().close();
             }

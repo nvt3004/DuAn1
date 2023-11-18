@@ -45,41 +45,25 @@ public class Form9NhanVien extends javax.swing.JPanel {
     }
 
     private void initTableData() {
-        EventActionNV eventAction = new EventActionNV() {
-            @Override
-            public void delete(ModelNhanVien student) {
-//                if (showMessage("Delete Student : " + student.getName())) {
-//                    System.out.println("User click OK");
-//                } else {
-//                    System.out.println("User click Cancel");
-//                }
-            }
 
-            @Override
-            public void update(ModelNhanVien student) {
-//                if (showMessage("Update Student : " + student.getName())) {
-//                    System.out.println("User click OK");
-//                } else {
-//                    System.out.println("User click Cancel");
-//                }
-            }
-
-        };
-//        table1.addRow(new ModelStudent(new ImageIcon(getClass().getResource("/com/raven/icon/profile.jpg")), "Jonh", "Male", "Java", 300).toRowTable(eventAction));
     }
 
     private void fillTableData() {
         DefaultTableModel model = (DefaultTableModel) tblNhanVien.getModel();
         model.setRowCount(0);
         try {
+            System.out.println("0");
             List<ModelNhanVien> list = nvDAO.selectAll();
             for (ModelNhanVien nv : list) {
                 Object[] row = {
-                    nv.getMaNV(), nv.getHoTen(), nv.getVaiTro(), nv.getEmail(), nv.getSoDienThoai()
+                    nv.getMaNV(), nv.getHoTen(), nv.getVaiTro(),
+                      nv.getHinhAnh()  , nv.getEmail(), nv.getSoDienThoai()
                 };
                 model.addRow(row);
             }
         } catch (Exception ex) {
+            System.out.println(ex);
+            System.out.println("ds");
             JOptionPane.showMessageDialog(this, "lỗi");
         }
     }
@@ -98,8 +82,8 @@ public class Form9NhanVien extends javax.swing.JPanel {
         } else {
             rdoNVKho.setSelected(true);
         }
-        this.hienThiHinhAnh(nv.getHinh());
-        imagePath = nv.getHinh();
+        this.hienThiHinhAnh(nv.getHinhAnh());
+        imagePath = nv.getHinhAnh();
     }
 
     private ModelNhanVien getForm() {
@@ -117,7 +101,7 @@ public class Form9NhanVien extends javax.swing.JPanel {
         } else {
             nv.setVaiTro("Nhân viên kho");
         }
-        nv.setHinh(imagePath);
+        nv.setHinhAnh(imagePath);
         return nv;
     }
 
@@ -210,8 +194,8 @@ public class Form9NhanVien extends javax.swing.JPanel {
                                 Image.SCALE_DEFAULT));
         lblAnh.setIcon(imageIcon);
     }
-    
-    private void chonAnh(){        
+
+    private void chonAnh() {
         JFileChooser filePane = new JFileChooser("G:\\DuAn1_huynh\\DuAn1\\src\\com\raven\\icon\\");
         FileFilter imageFilter = new FileNameExtensionFilter(
                 "Image files",
@@ -224,7 +208,7 @@ public class Form9NhanVien extends javax.swing.JPanel {
             this.hienThiHinhAnh(imagePath);
         }
     }
-    
+
     private boolean showMessage(String message) {
         Message obj = new Message(Main.getFrames()[0], true);
         obj.showMessage(message);
@@ -278,11 +262,11 @@ public class Form9NhanVien extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Mã nhân viên", "Tên nhân viên", "Vai trò", "Email", "Số điện thoại"
+                "Mã nhân viên", "Tên nhân viên", "Vai trò", "Hình ảnh", "Email", "Số điện thoại"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                false, false, false, true, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
