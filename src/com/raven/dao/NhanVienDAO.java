@@ -4,7 +4,7 @@
  */
 package com.raven.dao;
 
-import com.raven.jdbc.XJdbc;
+import com.raven.ultils.XJdbc;
 import com.raven.model.ModelNhanVien;
 import java.sql.ResultSet;
 import java.util.ArrayList;

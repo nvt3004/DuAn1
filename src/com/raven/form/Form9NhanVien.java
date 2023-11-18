@@ -2,7 +2,7 @@ package com.raven.form;
 
 import com.raven.dao.NhanVienDAO;
 import com.raven.dialog.Message;
-import com.raven.jdbc.XImage;
+import com.raven.ultils.XImage;
 import com.raven.main.Main;
 import com.raven.model.ModelCard;
 import com.raven.model.ModelNhanVien;
@@ -18,6 +18,7 @@ import java.io.File;
 import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
+import com.raven.ultils.MD5Hash;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -26,6 +27,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 public class Form9NhanVien extends javax.swing.JPanel {
+    MD5Hash md5 = new MD5Hash();
 
     NhanVienDAO nvDAO = new NhanVienDAO();
     int row = -1;
@@ -93,7 +95,7 @@ public class Form9NhanVien extends javax.swing.JPanel {
         ModelNhanVien nv = new ModelNhanVien();
         nv.setMaNV(txtMa.getText());
         nv.setHoTen(txtTen.getText());
-        nv.setMatKhau(new String(txtMatKhau.getPassword()));
+        nv.setMatKhau(md5.getMD5Hash(new String(txtMatKhau.getPassword())));
         nv.setSoDienThoai(txtSoDienThoai.getText());
         nv.setEmail(txtEmail.getText());
         if (rdoQuanLy.isSelected()) {
@@ -656,18 +658,18 @@ public class Form9NhanVien extends javax.swing.JPanel {
 
     private void txtTimKiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyPressed
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_txtTimKiemKeyPressed
 
     private void txtTimKiemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTimKiemMouseClicked
- if(txtTimKiem.getText().equals("Tìm kiếm nhân viên theo mã hoặc tên")){
+        if (txtTimKiem.getText().equals("Tìm kiếm nhân viên theo mã hoặc tên")) {
             txtTimKiem.setText("");
         }        // TODO add your handling code here:
     }//GEN-LAST:event_txtTimKiemMouseClicked
 
     private void txtTimKiemFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTimKiemFocusLost
         // TODO add your handling code here:
-         if(txtTimKiem.getText().isBlank()){
+        if (txtTimKiem.getText().isBlank()) {
             txtTimKiem.setText("Tìm kiếm nhân viên theo mã hoặc tên");
         }
     }//GEN-LAST:event_txtTimKiemFocusLost
