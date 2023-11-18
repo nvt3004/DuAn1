@@ -52,12 +52,16 @@ public class Form9NhanVien extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblNhanVien.getModel();
         model.setRowCount(0);
         try {
-            System.out.println("0");
-            List<ModelNhanVien> list = nvDAO.selectAll();
+            List<ModelNhanVien> list;
+            String keyWord = txtTimKiem.getText();
+            if (keyWord.equals("Tìm kiếm nhân viên theo mã hoặc tên")) {
+                list = nvDAO.selectAll();
+            } else {
+                list = nvDAO.selectByKeyword(keyWord);
+            }
             for (ModelNhanVien nv : list) {
                 Object[] row = {
-                    nv.getMaNV(), nv.getHoTen(), nv.getVaiTro(),
-                      nv.getHinhAnh()  , nv.getEmail(), nv.getSoDienThoai()
+                    nv.getMaNV(), nv.getHoTen(), nv.getVaiTro(), nv.getHinhAnh(), nv.getEmail(), nv.getSoDienThoai()
                 };
                 model.addRow(row);
             }
@@ -76,8 +80,7 @@ public class Form9NhanVien extends javax.swing.JPanel {
         txtSoDienThoai.setText(nv.getSoDienThoai());
         if ("Quản lý".equals(tblNhanVien.getValueAt(row, 2).toString())) {
             rdoQuanLy.setSelected(true);
-        }
-        if ("Nhân viên thu ngân".equals(tblNhanVien.getValueAt(row, 2).toString())) {
+        } else if ("Nhân viên thu ngân".equals(tblNhanVien.getValueAt(row, 2).toString())) {
             rdoNVThuNgan.setSelected(true);
         } else {
             rdoNVKho.setSelected(true);
@@ -95,8 +98,7 @@ public class Form9NhanVien extends javax.swing.JPanel {
         nv.setEmail(txtEmail.getText());
         if (rdoQuanLy.isSelected()) {
             nv.setVaiTro("Quản lý");
-        }
-        if (rdoNVThuNgan.isSelected()) {
+        } else if (rdoNVThuNgan.isSelected()) {
             nv.setVaiTro("Nhân viên thu ngân");
         } else {
             nv.setVaiTro("Nhân viên kho");
@@ -243,7 +245,6 @@ public class Form9NhanVien extends javax.swing.JPanel {
         rdoNVThuNgan = new javax.swing.JRadioButton();
         rdoNVKho = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
         txtTimKiem = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         btnThem = new javax.swing.JButton();
@@ -426,12 +427,27 @@ public class Form9NhanVien extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/Search.png"))); // NOI18N
-
-        txtTimKiem.setText("Tìm kiếm tại đây....");
+        txtTimKiem.setForeground(new java.awt.Color(102, 102, 102));
+        txtTimKiem.setText("Tìm kiếm nhân viên theo mã hoặc tên");
+        txtTimKiem.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTimKiemFocusLost(evt);
+            }
+        });
         txtTimKiem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtTimKiemMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtTimKiemMouseEntered(evt);
+            }
+        });
+        txtTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTimKiemKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTimKiemKeyReleased(evt);
             }
         });
 
@@ -439,17 +455,15 @@ public class Form9NhanVien extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addComponent(txtTimKiem)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-            .addComponent(txtTimKiem, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 12, Short.MAX_VALUE)
+                .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -619,10 +633,6 @@ public class Form9NhanVien extends javax.swing.JPanel {
         this.chonAnh();
     }//GEN-LAST:event_lblAnhMouseClicked
 
-    private void txtTimKiemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTimKiemMouseEntered
-        this.search();
-    }//GEN-LAST:event_txtTimKiemMouseEntered
-
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         this.insert();
     }//GEN-LAST:event_btnThemActionPerformed
@@ -634,6 +644,33 @@ public class Form9NhanVien extends javax.swing.JPanel {
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         this.delete();
     }//GEN-LAST:event_btnXoaActionPerformed
+
+    private void txtTimKiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyReleased
+        // TODO add your handling code here:
+        this.fillTableData();
+    }//GEN-LAST:event_txtTimKiemKeyReleased
+
+    private void txtTimKiemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTimKiemMouseEntered
+
+    }//GEN-LAST:event_txtTimKiemMouseEntered
+
+    private void txtTimKiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyPressed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_txtTimKiemKeyPressed
+
+    private void txtTimKiemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTimKiemMouseClicked
+ if(txtTimKiem.getText().equals("Tìm kiếm nhân viên theo mã hoặc tên")){
+            txtTimKiem.setText("");
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTimKiemMouseClicked
+
+    private void txtTimKiemFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTimKiemFocusLost
+        // TODO add your handling code here:
+         if(txtTimKiem.getText().isBlank()){
+            txtTimKiem.setText("Tìm kiếm nhân viên theo mã hoặc tên");
+        }
+    }//GEN-LAST:event_txtTimKiemFocusLost
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCuoi;
@@ -653,7 +690,6 @@ public class Form9NhanVien extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

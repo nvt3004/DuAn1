@@ -86,4 +86,8 @@ public class NhanVienDAO extends DuAnDAO<ModelNhanVien, String> {
             throw new RuntimeException(e);
         }
     }
+        public List<ModelNhanVien> selectByKeyword(String keyword) {
+        String SQL = "select manv, HoTen, VaiTro, HinhAnh,Email,SoDienThoai from NhanVien WHERE HoTen LIKE ? or manv like ?";
+        return this.selectBySql(SQL, "%" + keyword + "%","%" + keyword + "%");
+    }
 }
