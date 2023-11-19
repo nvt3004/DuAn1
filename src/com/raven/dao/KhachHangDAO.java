@@ -17,8 +17,8 @@ import java.util.List;
  */
 public class KhachHangDAO extends DuAnDAO<ModelKhachHang, Integer> {
 
-    String INSERT_SQL = "insert into KhachHang(HoTen,SoDienThoai,DiaChi,TongTienMua)values(?,?,?,?)";
-    String UPDATE_SQL = "update KhachHang set HoTen = ?, SoDienThoai = ?, DiaChi = ?, TongTienMua = ? where MaKH = ?";
+    String INSERT_SQL = "insert into KhachHang(HoTen,SoDienThoai,DiaChi,TongTienMua)values(?,?,?,0)";
+    String UPDATE_SQL = "update KhachHang set HoTen = ?, SoDienThoai = ?, DiaChi = ? where MaKH = ?";
     String DELETE_SQL = "delete from KhachHang where MaKH = ?";
     String SELECT_ALL_SQL = "select * from KhachHang";
     String SELECT_BY_ID = "select * from KhachHang where MaKH = ?";
@@ -28,8 +28,7 @@ public class KhachHangDAO extends DuAnDAO<ModelKhachHang, Integer> {
         XJdbc.update(INSERT_SQL,
                 entity.getTenKH(),
                 entity.getSoDienThoai(),
-                entity.getDiaChi(),
-                entity.getTongTienMua());
+                entity.getDiaChi());
     }
 
     @Override
@@ -38,7 +37,6 @@ public class KhachHangDAO extends DuAnDAO<ModelKhachHang, Integer> {
                 entity.getTenKH(),
                 entity.getSoDienThoai(),
                 entity.getDiaChi(),
-                entity.getTongTienMua(),
                 entity.getMaKH());
     }
 
@@ -73,7 +71,7 @@ public class KhachHangDAO extends DuAnDAO<ModelKhachHang, Integer> {
                 entity.setTenKH(rs.getNString("HoTen"));
                 entity.setSoDienThoai(rs.getString("SoDienThoai"));
                 entity.setDiaChi(rs.getNString("DiaChi"));
-                entity.setTongTienMua(rs.getFloat("TongTienMua"));
+        
                 list.add(entity);
             }
             return list;
@@ -84,7 +82,7 @@ public class KhachHangDAO extends DuAnDAO<ModelKhachHang, Integer> {
     }
 
     public List<ModelKhachHang> selectByKeyword(String keyword) {
-        String SQL = "select MaKH, HoTen,SoDienThoai,DiaChi,TongTienMua from KhachHang WHERE HoTen LIKE ? or SoDienThoai like ?";
-        return this.selectBySql(SQL, "%" + keyword + "%");
+        String SQL = "select MaKH, HoTen,SoDienThoai,DiaChi from KhachHang WHERE HoTen LIKE ? or SoDienThoai like ?";
+        return this.selectBySql(SQL, "%" + keyword + "%","%" + keyword + "%");
     }
 }
