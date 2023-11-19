@@ -2,6 +2,8 @@ package raven.forms;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.util.UIScale;
+import com.raven.dao.NhanVienDAO;
+import com.raven.model.ModelNhanVien;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
@@ -16,11 +18,14 @@ import java.io.IOException;
 
 public class Login extends JPanel {
 
+    NhanVienDAO nvdao = new NhanVienDAO();
+
     JTextField txtUsername = new JTextField();
     JTextField svValue = new JTextField();
     JTextField dbValue = new JTextField();
     JPasswordField txtPassword = new JPasswordField();
     JButton cmdLogin = new JButton("Đăng nhập");
+    JCheckBox chRememberMe = new JCheckBox("Ghi nhớ cho lần sau?");
 
     public Login() {
         init();
@@ -33,7 +38,6 @@ public class Login extends JPanel {
         });
         setLayout(new MigLayout("wrap,fillx,insets 45 45 50 45", "[fill]"));
         JLabel title = new JLabel("Đăng nhập", SwingConstants.CENTER);
-        JCheckBox chRememberMe = new JCheckBox("Ghi nhớ cho lần sau?");
         title.putClientProperty(FlatClientProperties.STYLE, ""
                 + "font:bold +10");
         txtUsername.putClientProperty(FlatClientProperties.STYLE, ""
@@ -97,9 +101,17 @@ public class Login extends JPanel {
                 String password = new String(txtPassword.getPassword());
                 String serverValue = svValue.getText();
                 String databaseValue = dbValue.getText();
-                
-                writeToFile(username, password, serverValue, databaseValue);
-                com.raven.main.Main.main(null);
+
+                if (chRememberMe.isSelected()) {
+                    writeToFile(username, password, serverValue, databaseValue);
+                }
+
+                ModelNhanVien nhanVien = nvdao.selectByIdMK(username);
+                if (nhanVien != null && password.equals(nhanVien.getMatKhau())) {
+                    com.raven.main.Main.main(null);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Đăng nhập thất bại");
+                }
             }
         });
     }
@@ -107,10 +119,10 @@ public class Login extends JPanel {
     private static void writeToFile(String username, String password, String serverValue, String databaseValue) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("connect.dat"))) {
             // Ghi dữ liệu vào file
-            writer.write(username + "\n");
-            writer.write(password + "\n");
             writer.write(serverValue + "\n");
             writer.write(databaseValue + "\n");
+            writer.write(username + "\n");
+            writer.write(password + "\n");
 
             System.out.println("Dữ liệu đã được ghi vào userData.dat");
 

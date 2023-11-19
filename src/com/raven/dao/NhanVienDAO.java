@@ -64,6 +64,14 @@ public class NhanVienDAO extends DuAnDAO<ModelNhanVien, String> {
         }
         return list.get(0);
     }
+    
+    public ModelNhanVien selectByIdMK(String key) {
+        List<ModelNhanVien> list = selectBySqlMK(SELECT_BY_ID, key);
+        if (list.isEmpty()) {
+            return null;
+        }
+        return list.get(0);
+    }
 
     @Override
     protected List<ModelNhanVien> selectBySql(String sql, Object... args) {
@@ -73,6 +81,29 @@ public class NhanVienDAO extends DuAnDAO<ModelNhanVien, String> {
             while (rs.next()) {
                 ModelNhanVien entity = new ModelNhanVien();
                 entity.setMaNV(rs.getString("MaNV"));
+                entity.setHoTen(rs.getString("HoTen"));
+                entity.setVaiTro(rs.getString("VaiTro"));
+                entity.setHinhAnh(rs.getString("HinhAnh"));
+                entity.setEmail(rs.getString("Email"));
+                entity.setSoDienThoai(rs.getString("SoDienThoai"));
+                list.add(entity);
+            }
+            return list;
+        } catch (Exception e) {
+            System.out.println(e);
+            throw new RuntimeException(e);
+        }
+    }
+    
+
+    protected List<ModelNhanVien> selectBySqlMK(String sql, Object... args) {
+        List<ModelNhanVien> list = new ArrayList<>();
+        try {
+            ResultSet rs = XJdbc.query(sql, args);
+            while (rs.next()) {
+                ModelNhanVien entity = new ModelNhanVien();
+                entity.setMaNV(rs.getString("MaNV"));
+                entity.setMatKhau(rs.getString("MatKhau"));
                 entity.setHoTen(rs.getString("HoTen"));
                 entity.setVaiTro(rs.getString("VaiTro"));
                 entity.setHinhAnh(rs.getString("HinhAnh"));

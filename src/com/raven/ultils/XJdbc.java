@@ -1,4 +1,3 @@
-
 package com.raven.ultils;
 
 import java.sql.Connection;
@@ -6,6 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  *
@@ -13,10 +15,13 @@ import java.sql.SQLException;
  */
 public class XJdbc {
 
+    static String svValue = "";
+    static String dbValue = "";
+
 //    static String driver = SQLServerDriver.class.getName();
     static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
-    static String dburl = "jdbc:sqlserver://localhost:1433;databaseName=CuaHangLuuNiem;trustServerCertificate=true;";
+    static String dburl = "jdbc:sqlserver://" + svValue + ":1433;databaseName=" + dbValue + ";trustServerCertificate=true;";
 
 //    static String dburl = "jdbc:sqlserver://;instanceName=SQLEXPRESS;databaseName=ShopQuaLuuNiem;trustServerCertificate=true";
     static String user = "sa";
@@ -31,6 +36,14 @@ public class XJdbc {
     }
 
     public static PreparedStatement getStmt(String sql, Object... args) throws SQLException {
+        try (BufferedReader reader = new BufferedReader(new FileReader("connect.dat"))) {
+            // Đọc dữ liệu từ file
+            svValue = reader.readLine();
+            dbValue = reader.readLine();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        dburl = "jdbc:sqlserver://" + svValue + ":1433;databaseName=" + dbValue + ";trustServerCertificate=true;";
         Connection conn = DriverManager.getConnection(dburl, user, pass);
         PreparedStatement stmt;
         if (sql.trim().startsWith("{")) {
@@ -62,4 +75,5 @@ public class XJdbc {
             throw new RuntimeException(e);
         }
     }
+
 }
