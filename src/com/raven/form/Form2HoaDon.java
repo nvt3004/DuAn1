@@ -11,7 +11,7 @@ import com.raven.swing.icon.GoogleMaterialDesignIcons;
 import com.raven.swing.icon.IconFontSwing;
 import com.raven.swing.noticeboard.ModelNoticeBoard;
 import com.raven.swing.table.EventAction;
-import com.raven.ultils.
+//import com.raven.ultils;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.BorderFactory;
@@ -268,12 +268,13 @@ public class Form2HoaDon extends javax.swing.JPanel {
                     .addComponent(lblSDT)
                     .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDiaChi)
-                    .addComponent(txtMaNhaCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblMaNV)
-                        .addComponent(txtMaNV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtMaNV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblDiaChi)
+                        .addComponent(txtMaNhaCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
@@ -658,22 +659,22 @@ public class Form2HoaDon extends javax.swing.JPanel {
         return hd;
     }
     
-    private void insert() {
-        NhanVien nv = getForm();
-        String matKhau2 = md5.getMD5Hash(new String(txtMatKhau2.getPassword()));
-        if (!matKhau2.equals(nv.getMatKhau())) {
-            MsgBox.alert(this, "Xác nhận mật khẩu không đúng!");
-        } else {
-            try {
-                dao.insert(nv);
-                this.fillTableHoaDon();
-                this.clearForm();
-                MsgBox.alert(this, "Thêm mới thành công!");
-            } catch (Exception e) {
-                MsgBox.alert(this, "Thêm mới thất bại!");
-            }
-        }
-    }
+//    private void insert() {
+//        NhanVien nv = getForm();
+//        String matKhau2 = md5.getMD5Hash(new String(txtMatKhau2.getPassword()));
+//        if (!matKhau2.equals(nv.getMatKhau())) {
+//            MsgBox.alert(this, "Xác nhận mật khẩu không đúng!");
+//        } else {
+//            try {
+//                dao.insert(nv);
+//                this.fillTableHoaDon();
+//                this.clearForm();
+//                MsgBox.alert(this, "Thêm mới thành công!");
+//            } catch (Exception e) {
+//                MsgBox.alert(this, "Thêm mới thất bại!");
+//            }
+//        }
+//    }
     
     private void updateStatus() {
         boolean edit = (this.row >= 0);

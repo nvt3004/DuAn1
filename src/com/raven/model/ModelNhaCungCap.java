@@ -23,12 +23,12 @@ public class ModelNhaCungCap {
         this.maNCC = maNCC;
     }
 
-    public String getTenNCC() {
-        return tenNCC;
+    public String getTenNhaCungCap() {
+        return tenNhaCungCap;
     }
 
-    public void setTenNCC(String tenNCC) {
-        this.tenNCC = tenNCC;
+    public void setTenNhaCungCap(String tenNhaCungCap) {
+        this.tenNhaCungCap = tenNhaCungCap;
     }
 
     public String getDiaChi() {
@@ -39,12 +39,12 @@ public class ModelNhaCungCap {
         this.diaChi = diaChi;
     }
 
-    public String getSdt() {
-        return sdt;
+    public String getSoDienThoai() {
+        return soDienThoai;
     }
 
-    public void setSdt(String sdt) {
-        this.sdt = sdt;
+    public void setSoDienThoai(String soDienThoai) {
+        this.soDienThoai = soDienThoai;
     }
 
     public String getEmail() {
@@ -63,11 +63,11 @@ public class ModelNhaCungCap {
         this.maSoThue = maSoThue;
     }
 
-    public ModelNhaCungCap(int maNCC, String tenNCC, String diaChi, String sdt, String email, String maSoThue) {
+    public ModelNhaCungCap(int maNCC, String tenNhaCungCap, String diaChi, String soDienThoai, String email, String maSoThue) {
         this.maNCC = maNCC;
-        this.tenNCC = tenNCC;
+        this.tenNhaCungCap = tenNhaCungCap;
         this.diaChi = diaChi;
-        this.sdt = sdt;
+        this.soDienThoai = soDienThoai;
         this.email = email;
         this.maSoThue = maSoThue;
     }
@@ -76,13 +76,14 @@ public class ModelNhaCungCap {
     }
     
     private int maNCC;
-    private String tenNCC;
+    private String tenNhaCungCap;
     private String diaChi;
-    private String sdt;
+    private String soDienThoai;
     private String email;
     private String maSoThue;
     
-    public Object[] toRowTable(EventActionNCC event) {
-        return new Object[]{maNCC, tenNCC, diaChi, sdt, email, maSoThue};
-    }
+//    public Object[] toRowTable(EventActionNCC event) {
+//        Object sdt = null;
+//        return new Object[]{maNCC, tenNhaCungCap, diaChi, soDienThoai, email, maSoThue};
+//    }
 }
