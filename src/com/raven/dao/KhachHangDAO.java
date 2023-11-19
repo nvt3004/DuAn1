@@ -84,7 +84,7 @@ public class KhachHangDAO extends DuAnDAO<ModelKhachHang, Integer> {
     }
 
     public List<ModelKhachHang> selectByKeyword(String keyword) {
-        String SQL = "select MaKH, HoTen,SoDienThoai,DiaChi,TongTienMua from KhachHang WHERE HoTen LIKE ?";
+        String SQL = "select MaKH, HoTen,SoDienThoai,DiaChi,TongTienMua from KhachHang WHERE HoTen LIKE ? or SoDienThoai like ?";
         return this.selectBySql(SQL, "%" + keyword + "%");
     }
 }

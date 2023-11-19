@@ -34,20 +34,16 @@ public class Form5PhieuNhap extends javax.swing.JPanel {
         System.out.println(table2.getRowHeight());
         table2.getColumnModel().getColumn(1).setCellRenderer(new CustomTableCellRenderer());
         table2.getColumnModel().getColumn(3).setCellRenderer(new CustomTableCellRenderer());
-        table2.setBackground(Color.white);
-//        table2.
+        table2.setBackground(new java.awt.Color(102, 255, 102));
 
     }
 
     private void initData() {
         initTableData();
-
     }
 
     private void initTableData() {
-        
         TableActionEvent event = new TableActionEvent() {
-
             @Override
             public void onDelete(int row) {
                 if (table2.isEditing()) {
@@ -77,30 +73,17 @@ public class Form5PhieuNhap extends javax.swing.JPanel {
                 }
             }
         };
-        table1.addRow(new Object[]{1,3,"12:12:12 12-12-2023",30,350000,"Tiền mặt"});
-                table1.addRow(new Object[]{1,3,"12:12:12 12-12-2023",30,350000,"Tiền mặt"});
-        table1.addRow(new Object[]{1,3,"12:12:12 12-12-2023",30,350000,"Tiền mặt"});
-        table1.addRow(new Object[]{1,3,"12:12:12 12-12-2023",30,350000,"Tiền mặt"});
-        table1.addRow(new Object[]{1,3,"12:12:12 12-12-2023",30,350000,"Tiền mặt"});
-        table1.addRow(new Object[]{1,3,"12:12:12 12-12-2023",30,350000,"Tiền mặt"});
-        table1.addRow(new Object[]{1,3,"12:12:12 12-12-2023",30,350000,"Tiền mặt"});
-        table1.addRow(new Object[]{1,3,"12:12:12 12-12-2023",30,350000,"Tiền mặt"});
-        table1.addRow(new Object[]{1,3,"12:12:12 12-12-2023",30,350000,"Tiền mặt"});
-        table1.addRow(new Object[]{1,3,"12:12:12 12-12-2023",30,350000,"Tiền mặt"});
-        table1.addRow(new Object[]{1,3,"12:12:12 12-12-2023",30,350000,"Tiền mặt"});
-//
-//        table1.addRow(new ModelStudent(new ImageIcon(getClass().getResource("/com/raven/icon/profile1.jpg")), "Dara", "Male", "C++", 300).toRowTable(eventAction));
-//        table1.addRow(new ModelStudent(new ImageIcon(getClass().getResource("/com/raven/icon/profile2.jpg")), "Bora", "Male", "C#", 300).toRowTable(eventAction));
-//        table1.addRow(new ModelStudent(new ImageIcon(getClass().getResource("/com/raven/icon/profile2.jpg")), "Bora", "Male", "C#", 300).toRowTable(eventAction));
-//        table1.addRow(new ModelStudent(new ImageIcon(getClass().getResource("/com/raven/icon/profile2.jpg")), "Bora", "Male", "C#", 300).toRowTable(eventAction));
-//        table1.addRow(new ModelStudent(new ImageIcon(getClass().getResource("/com/raven/icon/profile2.jpg")), "Bora", "Male", "C#", 300).toRowTable(eventAction));
-//        table1.addRow(new ModelStudent(new ImageIcon(getClass().getResource("/com/raven/icon/profile2.jpg")), "Bora", "Male", "C#", 300).toRowTable(eventAction));
-//        table1.addRow(new ModelStudent(new ImageIcon(getClass().getResource("/com/raven/icon/profile2.jpg")), "Bora", "Male", "C#", 300).toRowTable(eventAction));
-//        table1.addRow(new ModelStudent(new ImageIcon(getClass().getResource("/com/raven/icon/profile2.jpg")), "Bora", "Male", "C#", 300).toRowTable(eventAction));
-//        table1.addRow(new ModelStudent(new ImageIcon(getClass().getResource("/com/raven/icon/profile2.jpg")), "Bora", "Male", "C#", 300).toRowTable(eventAction));
-//        table1.addRow(new ModelStudent(new ImageIcon(getClass().getResource("/com/raven/icon/profile2.jpg")), "Bora", "Male", "C#", 300).toRowTable(eventAction));
-//        table1.addRow(new ModelStudent(new ImageIcon(getClass().getResource("/com/raven/icon/profile2.jpg")), "Bora", "Male", "C#", 300).toRowTable(eventAction));
-//        table1.addRow(new ModelStudent(new ImageIcon(getClass().getResource("/com/raven/icon/profile2.jpg")), "Bora", "Male", "C#", 300).toRowTable(eventAction));
+        table1.addRow(new Object[]{1, 3, "12:12:12 12-12-2023", 30, 350000, "Tiền mặt"});
+        table1.addRow(new Object[]{1, 3, "12:12:12 12-12-2023", 30, 350000, "Tiền mặt"});
+        table1.addRow(new Object[]{1, 3, "12:12:12 12-12-2023", 30, 350000, "Tiền mặt"});
+        table1.addRow(new Object[]{1, 3, "12:12:12 12-12-2023", 30, 350000, "Tiền mặt"});
+        table1.addRow(new Object[]{1, 3, "12:12:12 12-12-2023", 30, 350000, "Tiền mặt"});
+        table1.addRow(new Object[]{1, 3, "12:12:12 12-12-2023", 30, 350000, "Tiền mặt"});
+        table1.addRow(new Object[]{1, 3, "12:12:12 12-12-2023", 30, 350000, "Tiền mặt"});
+        table1.addRow(new Object[]{1, 3, "12:12:12 12-12-2023", 30, 350000, "Tiền mặt"});
+        table1.addRow(new Object[]{1, 3, "12:12:12 12-12-2023", 30, 350000, "Tiền mặt"});
+        table1.addRow(new Object[]{1, 3, "12:12:12 12-12-2023", 30, 350000, "Tiền mặt"});
+        table1.addRow(new Object[]{1, 3, "12:12:12 12-12-2023", 30, 350000, "Tiền mặt"});
 
         table2.addRow(new Object[]{1, "SP001", 1, 2500, 2500});
         table2.addRow(new Object[]{1, "SP002", 3, 1500, 4500});
@@ -127,13 +110,10 @@ public class Form5PhieuNhap extends javax.swing.JPanel {
         tabHoaDon1 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        txtMaPN = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        lblMaNCC = new javax.swing.JLabel();
         txtMaNhaCC = new javax.swing.JTextField();
         txtNgayTao = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         btnThanhToan2 = new javax.swing.JButton();
         lblSoLuong7 = new javax.swing.JLabel();
@@ -144,7 +124,6 @@ public class Form5PhieuNhap extends javax.swing.JPanel {
         lblThemSanPham = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         table2 = new com.raven.swing.table.Table();
-        pnlHoaDon2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         btnThem2 = new javax.swing.JButton();
         btnSua1 = new javax.swing.JButton();
@@ -193,15 +172,7 @@ public class Form5PhieuNhap extends javax.swing.JPanel {
         jPanel2.setName(""); // NOI18N
         jPanel2.setPreferredSize(new java.awt.Dimension(1009, 80));
 
-        jLabel1.setText("Mã phiếu nhập");
-
-        txtMaPN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMaPNActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setText("Mã nhà cung cấp");
+        lblMaNCC.setText("Mã nhân viên");
 
         txtMaNhaCC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,30 +188,20 @@ public class Form5PhieuNhap extends javax.swing.JPanel {
 
         jLabel4.setText("Ngày tạo");
 
-        jLabel6.setText("NV: Tinhbm04");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(51, 51, 51)
-                        .addComponent(txtNgayTao, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtMaPN, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtMaNhaCC, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(jLabel4)
+                .addGap(99, 99, 99)
+                .addComponent(txtNgayTao, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addComponent(lblMaNCC)
+                .addGap(18, 18, 18)
+                .addComponent(txtMaNhaCC, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,17 +209,12 @@ public class Form5PhieuNhap extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5)
-                        .addComponent(txtMaNhaCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6))
+                        .addComponent(jLabel4)
+                        .addComponent(txtNgayTao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(txtMaPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtNgayTao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                        .addComponent(lblMaNCC)
+                        .addComponent(txtMaNhaCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         jPanel8.setBackground(new java.awt.Color(153, 204, 255));
@@ -340,10 +296,11 @@ public class Form5PhieuNhap extends javax.swing.JPanel {
 
         table2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Mã PN", "Mã SP", "Đơn giá", "Số lượng", "Thành tiền", "Xóa"
+                "Mã PN", "Mã SP", "Đơn giá", "Số lượng", "Thành tiền", ""
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -382,19 +339,6 @@ public class Form5PhieuNhap extends javax.swing.JPanel {
         );
 
         tabHoaDon1.addTab("Phiếu nhập 3", jPanel4);
-
-        javax.swing.GroupLayout pnlHoaDon2Layout = new javax.swing.GroupLayout(pnlHoaDon2);
-        pnlHoaDon2.setLayout(pnlHoaDon2Layout);
-        pnlHoaDon2Layout.setHorizontalGroup(
-            pnlHoaDon2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 645, Short.MAX_VALUE)
-        );
-        pnlHoaDon2Layout.setVerticalGroup(
-            pnlHoaDon2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 644, Short.MAX_VALUE)
-        );
-
-        tabHoaDon1.addTab("Thêm", pnlHoaDon2);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new java.awt.GridLayout(2, 4));
@@ -507,10 +451,6 @@ public class Form5PhieuNhap extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtMaPNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaPNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMaPNActionPerformed
-
     private void txtMaNhaCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaNhaCCActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMaNhaCCActionPerformed
@@ -563,13 +503,13 @@ public class Form5PhieuNhap extends javax.swing.JPanel {
     private void txtNgayTaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNgayTaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNgayTaoActionPerformed
-    public class CustomTableCellRenderer extends DefaultTableCellRenderer {
+  public class CustomTableCellRenderer extends DefaultTableCellRenderer {
 
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
             Component cellComponent = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
             ((JComponent) cellComponent).setBackground((Color.white));
             ((JComponent) cellComponent).setForeground((Color.black));
-            Border border = BorderFactory.createMatteBorder(2, 2, 3, 2, new Color(51,204,255));
+            Border border = BorderFactory.createMatteBorder(5, 5, 5, 5, new Color(204, 255, 204));
             ((JComponent) cellComponent).setBorder(border);
             return cellComponent;
         }
@@ -585,13 +525,10 @@ public class Form5PhieuNhap extends javax.swing.JPanel {
     private javax.swing.JButton btnThem2;
     private javax.swing.JButton btnXoa1;
     private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -599,15 +536,14 @@ public class Form5PhieuNhap extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblMaNCC;
     private javax.swing.JLabel lblSoLuong7;
     private javax.swing.JLabel lblSoLuong8;
     private javax.swing.JLabel lblThemSanPham;
-    private javax.swing.JPanel pnlHoaDon2;
     private javax.swing.JTabbedPane tabHoaDon1;
     private com.raven.swing.table.Table table1;
     private com.raven.swing.table.Table table2;
     private javax.swing.JTextField txtMaNhaCC;
-    private javax.swing.JTextField txtMaPN;
     private javax.swing.JTextField txtNgayTao;
     // End of variables declaration//GEN-END:variables
 }
