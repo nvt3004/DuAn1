@@ -1,10 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.raven.ultils;
 
-import com.microsoft.sqlserver.jdbc.SQLServerDriver;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -20,11 +16,11 @@ public class XJdbc {
 //    static String driver = SQLServerDriver.class.getName();
     static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
-    static String dburl = "jdbc:sqlserver://localhost:1433;databaseName=ShopQuaLuuNiem;encrypt=true;trustServerCertificate=true;";
+    static String dburl = "jdbc:sqlserver://localhost:1433;databaseName=CuaHangLuuNiem;trustServerCertificate=true;";
 
 //    static String dburl = "jdbc:sqlserver://;instanceName=SQLEXPRESS;databaseName=ShopQuaLuuNiem;trustServerCertificate=true";
     static String user = "sa";
-    static String pass = "123456";
+    static String pass = "30042004";
 
     static {
         try {
