@@ -11,12 +11,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import raven.components.HeaderButton;
 
 public class Login extends JPanel {
 
@@ -25,9 +27,12 @@ public class Login extends JPanel {
     JTextField txtUsername = new JTextField();
     JTextField svValue = new JTextField();
     JTextField dbValue = new JTextField();
+    JLabel fogetPass = new JLabel("Quên mật khẩu");
     JPasswordField txtPassword = new JPasswordField();
     JButton cmdLogin = new JButton("Đăng nhập");
     JCheckBox chRememberMe = new JCheckBox("Ghi nhớ cho lần sau?");
+
+    HeaderButton explore = new HeaderButton("Quên mật khẩu");
 
     public Login() {
         init();
@@ -59,6 +64,9 @@ public class Login extends JPanel {
                 + "margin:5,10,5,10;"
                 + "focusWidth:1;"
                 + "innerFocusWidth:0");
+        fogetPass.putClientProperty(FlatClientProperties.STYLE, ""
+                + "font:bold +1;"
+                + "foreground:#0077CC;");
         cmdLogin.putClientProperty(FlatClientProperties.STYLE, ""
                 + "background:$Component.accentColor;"
                 + "borderWidth:0;"
@@ -79,8 +87,9 @@ public class Login extends JPanel {
         add(new JLabel("Tên Database"), "gapy 10");
         add(dbValue);
         add(chRememberMe, "gapy 10");
-        add(cmdLogin, "gapy 30");
-        
+        add(fogetPass, "gapy 30");
+        add(cmdLogin, "gapy 10");
+
         try (BufferedReader reader = new BufferedReader(new FileReader("connect.dat"))) {
             // Đọc dữ liệu từ file
             svValue.setText(reader.readLine());
@@ -90,7 +99,7 @@ public class Login extends JPanel {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        
+
     }
 
     @Override
@@ -126,7 +135,15 @@ public class Login extends JPanel {
                 }
             }
         });
+//        fogetPass.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseClicked(MouseEvent e) {
+//                explore.getActionListeners()[0].actionPerformed(null);
+//            }
+//        });
     }
+
+
 
     private static void writeToFile(String username, String password, String serverValue, String databaseValue) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("connect.dat"))) {
@@ -142,4 +159,5 @@ public class Login extends JPanel {
             ex.printStackTrace();
         }
     }
+
 }

@@ -9,6 +9,7 @@ import raven.components.HeaderButton;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Area;
@@ -161,7 +162,7 @@ public class HomeOverlay extends JWindow {
             }
         }
 
-        private void createHeader() {
+        public void createHeader() {
             header = new JPanel(new MigLayout("fill", "[]push[][]"));
             header.setOpaque(false);
             JLabel title = new JLabel("Mystic");
@@ -169,8 +170,19 @@ public class HomeOverlay extends JWindow {
                     + "font:bold +10");
             HeaderButton home = new HeaderButton("Trang chủ");
             HeaderButton about = new HeaderButton("Giới thiệu");
-            HeaderButton explore = new HeaderButton("Đăng ký");
+            HeaderButton explore = new HeaderButton("Quên mật khẩu");
             HeaderButton login = new HeaderButton("Đăng nhập");
+
+//            Login lg = new Login();
+//
+//            ActionListener commonAction = e -> {
+//                runLoginAnimation(true);
+//                runSiginAnimation(false);
+//            };
+//
+//            lg.fogetPass.addActionListener(commonAction);
+//            login.addActionListener(commonAction);
+//            explore.addActionListener(commonAction);
 
             login.addActionListener(e -> {
                 runLoginAnimation(true);
@@ -313,4 +325,6 @@ public class HomeOverlay extends JWindow {
     public enum AnimationType {
         CLOSE_VIDEO, SHOW_VIDEO, NONE
     }
+
+    
 }
