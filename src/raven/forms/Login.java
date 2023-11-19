@@ -12,7 +12,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.geom.RoundRectangle2D;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -78,7 +80,17 @@ public class Login extends JPanel {
         add(dbValue);
         add(chRememberMe, "gapy 10");
         add(cmdLogin, "gapy 30");
-
+        
+        try (BufferedReader reader = new BufferedReader(new FileReader("connect.dat"))) {
+            // Đọc dữ liệu từ file
+            svValue.setText(reader.readLine());
+            dbValue.setText(reader.readLine());
+            txtUsername.setText(reader.readLine());
+            txtPassword.setText(reader.readLine());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        
     }
 
     @Override
