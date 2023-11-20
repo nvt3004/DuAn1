@@ -728,6 +728,13 @@ public class Form1SanPham extends javax.swing.JPanel {
             lblMoTa.setFont(font);
             kq = false;
         }
+        
+        if(lblHinhAnh.getIcon() == null){
+            lblAnh.setText("*Vui lòng chọn ảnh");
+            lblAnh.setForeground(Color.red);
+            lblAnh.setFont(font);
+            kq = false;
+        }
 
         return kq;
     }
