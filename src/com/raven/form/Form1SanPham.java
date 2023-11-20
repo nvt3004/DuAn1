@@ -14,6 +14,7 @@ import com.raven.ultils.Auth;
 import com.raven.ultils.MsgBox;
 import com.raven.ultils.XImage;
 import java.awt.Color;
+import java.awt.Font;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -93,10 +94,10 @@ public class Form1SanPham extends javax.swing.JPanel {
         cboDonViTinh = new javax.swing.JComboBox<>();
         lblMaVach = new javax.swing.JLabel();
         txtMaVach = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
+        lblMoTa = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtMoTa = new javax.swing.JTextArea();
-        jLabel20 = new javax.swing.JLabel();
+        lblSoLuong = new javax.swing.JLabel();
         txtSoLuong = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         btnMoi = new com.raven.swing.Button();
@@ -151,7 +152,7 @@ public class Form1SanPham extends javax.swing.JPanel {
         lblDonGia.setText("Đơn giá");
 
         lblGiaKhuyenMai.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
-        lblGiaKhuyenMai.setText("Giá Khuyến Mãi");
+        lblGiaKhuyenMai.setText("Giá khuyến mãi");
 
         lblDonViTinh.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
         lblDonViTinh.setText("Đơn vị tính");
@@ -161,15 +162,15 @@ public class Form1SanPham extends javax.swing.JPanel {
         lblMaVach.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
         lblMaVach.setText("Mã vạch");
 
-        jLabel18.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
-        jLabel18.setText("Mô tả");
+        lblMoTa.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        lblMoTa.setText("Mô tả");
 
         txtMoTa.setColumns(20);
         txtMoTa.setRows(5);
         jScrollPane2.setViewportView(txtMoTa);
 
-        jLabel20.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
-        jLabel20.setText("Số lượng");
+        lblSoLuong.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        lblSoLuong.setText("Số lượng");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -181,13 +182,10 @@ public class Form1SanPham extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(lblHinhAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lblAnh)))
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblHinhAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cboDonViTinh, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -201,15 +199,14 @@ public class Form1SanPham extends javax.swing.JPanel {
                             .addComponent(lblLoaiSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblMaSP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 540, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtTenSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-                                .addComponent(txtDonGia, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-                                .addComponent(txtSoLuong, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-                                .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-                                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblTenSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(lblDonGia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTenSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                            .addComponent(txtDonGia, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                            .addComponent(txtSoLuong, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                            .addComponent(lblMoTa, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                            .addComponent(lblSoLuong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblTenSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblDonGia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(53, 53, 53))
         );
         jPanel1Layout.setVerticalGroup(
@@ -231,7 +228,6 @@ public class Form1SanPham extends javax.swing.JPanel {
                                 .addComponent(lblMaSP)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtMaSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -249,13 +245,13 @@ public class Form1SanPham extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtGiaKhuyenMai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel20)
+                                .addComponent(lblSoLuong)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(12, 12, 12)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblDonViTinh)
-                            .addComponent(jLabel18))
+                            .addComponent(lblMoTa))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -394,7 +390,7 @@ public class Form1SanPham extends javax.swing.JPanel {
     }//GEN-LAST:event_btnDauActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        
+
     }//GEN-LAST:event_btnThemActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -410,9 +406,7 @@ public class Form1SanPham extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cboDonViTinh;
     private javax.swing.JComboBox<String> cboLoaiSanPham;
     private javax.swing.JFileChooser jFileChooser1;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
@@ -426,6 +420,8 @@ public class Form1SanPham extends javax.swing.JPanel {
     private javax.swing.JLabel lblLoaiSanPham;
     private javax.swing.JLabel lblMaSP;
     private javax.swing.JLabel lblMaVach;
+    private javax.swing.JLabel lblMoTa;
+    private javax.swing.JLabel lblSoLuong;
     private javax.swing.JLabel lblTenSanPham;
     private com.raven.swing.table.Table tblSanPham;
     private javax.swing.JTextField txtDonGia;
@@ -479,47 +475,51 @@ public class Form1SanPham extends javax.swing.JPanel {
         ModelSanPham sp = new ModelSanPham();
         sp.setMaSP(txtMaSP.getText());
         sp.setTenSanPham(txtTenSanPham.getText());
-        sp.setLoaiSanPham((String) cboLoaiSanPham.getSelectedItem());
+        sp.setLoaiSanPham(cboLoaiSanPham.getSelectedItem().toString());
         sp.setGiaBan(Double.parseDouble(txtDonGia.getText()));
         sp.setGiaKhuyenMai(Double.parseDouble(txtGiaKhuyenMai.getText()));
-        sp.setDonViTinh((String) cboDonViTinh.getSelectedItem());
+        sp.setDonViTinh(cboDonViTinh.getSelectedItem().toString());
         sp.setSoLuongCon(Integer.parseInt(txtSoLuong.getText()));
         sp.setMoTa(txtMoTa.getText());
         sp.setMaVach(txtMaVach.getText());
         sp.setHinhAnh(lblHinhAnh.getToolTipText());
         return sp;
     }
-    
+
     private void insert() {
-        if (!Auth.isAdmin() || !Auth.isThuNgan()) {
-            MsgBox.alert(this, "Nhân viên kho không được thêm sẩn phẩm!");
-        } else {
-            ModelSanPham sp = getForm();
-            try {
-                spdao.insert(sp);
-                this.fillTable();
-                this.clearForm();
-                MsgBox.alert(this, "Thêm mới thành công!");
-            } catch (Exception e) {
-                MsgBox.alert(this, "Thêm mới thất bại!");
-                throw new RuntimeException(e);
+        if (check()) {
+            if (!Auth.isAdmin() || !Auth.isThuNgan()) {
+                MsgBox.alert(this, "Nhân viên kho không được thêm sẩn phẩm!");
+            } else {
+                ModelSanPham sp = getForm();
+                try {
+                    spdao.insert(sp);
+                    this.fillTable();
+                    this.clearForm();
+                    MsgBox.alert(this, "Thêm mới thành công!");
+                } catch (Exception e) {
+                    MsgBox.alert(this, "Thêm mới thất bại!");
+                    throw new RuntimeException(e);
+                }
             }
         }
     }
 
     private void update() {
-        if (!Auth.isAdmin()) {
-            MsgBox.alert(this, "Chỉ admin được cập nhật sản phẩm!");
-        } else {
-            ModelSanPham sp = getForm();
-            try {
-                spdao.update(sp);
-                this.fillTable();
-                this.clearForm();
-                MsgBox.alert(this, "Thêm mới thành công!");
-            } catch (Exception e) {
-                MsgBox.alert(this, "Thêm mới thất bại!");
-                throw new RuntimeException(e);
+        if (check()) {
+            if (!Auth.isAdmin()) {
+                MsgBox.alert(this, "Chỉ admin được cập nhật sản phẩm!");
+            } else {
+                ModelSanPham sp = getForm();
+                try {
+                    spdao.update(sp);
+                    this.fillTable();
+                    this.clearForm();
+                    MsgBox.alert(this, "Thêm mới thành công!");
+                } catch (Exception e) {
+                    MsgBox.alert(this, "Thêm mới thất bại!");
+                    throw new RuntimeException(e);
+                }
             }
         }
     }
@@ -550,7 +550,7 @@ public class Form1SanPham extends javax.swing.JPanel {
     }
 
     private void edit() {
-        String masp = (String) tblSanPham.getValueAt(this.row, 0);
+        String masp = tblSanPham.getValueAt(this.row, 0).toString();
         ModelSanPham sp = spdao.selectById(masp);
         this.setForm(sp);
         this.updateStatus();
@@ -595,5 +595,140 @@ public class Form1SanPham extends javax.swing.JPanel {
         btnLui.setEnabled(edit && !first);
         btnTien.setEnabled(edit && !last);
         btnCuoi.setEnabled(edit && !last);
+    }
+
+    private boolean check() {
+        boolean kq = true;
+        Font font = new Font("SansSerif", Font.ITALIC, 12); // Tạo một font chữ nghiêng với kích cỡ 16
+        String regex = "^[0-9]+(\\.[0-9]+)?$"; // Biểu thức chính quy kiểm tra xem chuỗi có chứa ký tự đặt biệt hay không
+
+        lblMaSP.setText("Mã sản phẩm");
+        lblLoaiSanPham.setText("Loại sản phẩm");
+        lblGiaKhuyenMai.setText("Giá khuyến mãi");
+        lblDonViTinh.setText("Đơn vị tính");
+        lblMaVach.setText("Mã vạch");
+        lblTenSanPham.setText("Tên sản phẩm");
+        lblDonGia.setText("Đơn giá");
+        lblSoLuong.setText("Số lượng");
+        lblMoTa.setText("Mô tả");
+        lblAnh.setText("Hình ảnh");
+
+        lblMaSP.setForeground(Color.black);
+        lblLoaiSanPham.setForeground(Color.black);
+        lblGiaKhuyenMai.setForeground(Color.black);
+        lblDonViTinh.setForeground(Color.black);
+        lblMaVach.setForeground(Color.black);
+        lblTenSanPham.setForeground(Color.black);
+        lblDonGia.setForeground(Color.black);
+        lblSoLuong.setForeground(Color.black);
+        lblMoTa.setForeground(Color.black);
+        lblAnh.setForeground(Color.black);
+
+        if (txtMaSP.getText().isBlank()) {
+            lblMaSP.setText("*Nhập mã sản phẩm");
+            lblMaSP.setForeground(Color.red);
+            lblMaSP.setFont(font);
+            kq = false;
+        }
+
+        if (cboLoaiSanPham.getSelectedIndex() <= 0) {
+            lblLoaiSanPham.setText("*Chọn loại sản phẩm");
+            lblLoaiSanPham.setForeground(Color.red);
+            lblLoaiSanPham.setFont(font);
+            kq = false;
+        }
+
+        try {
+            if (txtGiaKhuyenMai.getText().isBlank()) {
+                lblGiaKhuyenMai.setText("*Nhập giá khuyến mãi");
+                lblGiaKhuyenMai.setForeground(Color.red);
+                lblGiaKhuyenMai.setFont(font);
+                kq = false;
+            }
+
+            if (txtGiaKhuyenMai.getText().matches(regex)) {
+                lblGiaKhuyenMai.setText("*Không chứa ký tự đặt biệt và chữ");
+                lblGiaKhuyenMai.setForeground(Color.red);
+                lblGiaKhuyenMai.setFont(font);
+                kq = false;
+            }
+        } catch (Exception e) {
+            lblGiaKhuyenMai.setText("*Giá khuyến mãi phải là số");
+            lblGiaKhuyenMai.setForeground(Color.red);
+            lblGiaKhuyenMai.setFont(font);
+            kq = false;
+        }
+
+        if (cboDonViTinh.getSelectedIndex() <= 0) {
+            lblDonViTinh.setText("*Chọn đơn vị tính");
+            lblDonViTinh.setForeground(Color.red);
+            lblDonViTinh.setFont(font);
+            kq = false;
+        }
+
+        if (txtMaVach.getText().isBlank()) {
+            lblMaVach.setText("*Nhập mã vạch");
+            lblMaVach.setForeground(Color.red);
+            lblMaVach.setFont(font);
+            kq = false;
+        }
+
+        if (txtTenSanPham.getText().isBlank()) {
+            lblTenSanPham.setText("*Nhập tên sản phẩm");
+            lblTenSanPham.setForeground(Color.red);
+            lblTenSanPham.setFont(font);
+            kq = false;
+        }
+
+        try {
+            if (txtDonGia.getText().isBlank()) {
+                lblDonGia.setText("*Nhập đơn giá");
+                lblDonGia.setForeground(Color.red);
+                lblDonGia.setFont(font);
+                kq = false;
+            }
+
+            if (txtDonGia.getText().matches(regex)) {
+                lblDonGia.setText("*Không chứa ký tự đặt biệt và chữ");
+                lblDonGia.setForeground(Color.red);
+                lblDonGia.setFont(font);
+                kq = false;
+            }
+        } catch (Exception e) {
+            lblDonGia.setText("*Đơn giá phải là số");
+            lblDonGia.setForeground(Color.red);
+            lblDonGia.setFont(font);
+            kq = false;
+        }
+
+        try {
+            if (txtSoLuong.getText().isBlank()) {
+                lblSoLuong.setText("*Nhập số lượng");
+                lblSoLuong.setForeground(Color.red);
+                lblSoLuong.setFont(font);
+                kq = false;
+            }
+
+            if (txtSoLuong.getText().matches(regex)) {
+                lblSoLuong.setText("*Không chứa ký tự đặt biệt và chữ");
+                lblSoLuong.setForeground(Color.red);
+                lblSoLuong.setFont(font);
+                kq = false;
+            }
+        } catch (Exception e) {
+            lblSoLuong.setText("*Số lượng phải là số");
+            lblSoLuong.setForeground(Color.red);
+            lblSoLuong.setFont(font);
+            kq = false;
+        }
+
+        if (txtMoTa.getText().isBlank()) {
+            lblMoTa.setText("*Nhập mô tả");
+            lblMoTa.setForeground(Color.red);
+            lblMoTa.setFont(font);
+            kq = false;
+        }
+
+        return kq;
     }
 }
