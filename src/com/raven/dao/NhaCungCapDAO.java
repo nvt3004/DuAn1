@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 public class NhaCungCapDAO extends DuAnDAO<ModelNhaCungCap, Integer> {
 
     String INSERT_SQL = "INSERT INTO NhaCungCap (TenNhaCungCap, DiaChi, SoDienThoai, Email, MaSoThue) VALUES (?, ?, ?, ?, ?)";
-    String UPDATE_SQL = "UPDATE NhaCungCap SET TenNhaCungCap=?, DiaChi=?, SoDienThoai=?, Email=?, MaSoThue= WHERE MaNCC=?";
+    String UPDATE_SQL = "UPDATE NhaCungCap SET TenNhaCungCap=?, DiaChi=?, SoDienThoai=?, Email=?, MaSoThue=? WHERE MaNCC=?";
     String DELETE_SQL = "DELETE FROM NhaCungCap WHERE MaNCC=?";
     String SELECT_ALL_SQL = "SELECT * FROM NhaCungCap";
     String SELECT_BY_ID_SQL = "SELECT * FROM NhaCungCap WHERE MaNCC=?";
@@ -87,6 +87,7 @@ public class NhaCungCapDAO extends DuAnDAO<ModelNhaCungCap, Integer> {
                 entity.setSoDienThoai(rs.getString("SoDienThoai"));
                 entity.setEmail(rs.getString("Email"));
                 entity.setMaSoThue(rs.getString("MaSoThue"));
+                list.add(entity);
             }
             rs.getStatement().getConnection().close();
             return list;
