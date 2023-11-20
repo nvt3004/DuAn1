@@ -14,6 +14,7 @@ import com.raven.swing.table.EventActionNCC;
 import com.raven.ultils.Auth;
 import com.raven.ultils.MsgBox;
 import java.awt.Color;
+import java.awt.Font;
 import java.util.List;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -258,22 +259,22 @@ public class Form4 extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(218, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblEmail)
-                    .addComponent(lblNhaCungCap)
                     .addComponent(txtEmail)
-                    .addComponent(txtMaNhaCungCap, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMaNhaCungCap, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                    .addComponent(lblNhaCungCap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblTenNhaCungCap)
-                    .addComponent(lblSoDienThoai)
                     .addComponent(txtSoDienThoai)
-                    .addComponent(txtTenNhaCungCap, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTenNhaCungCap, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                    .addComponent(lblTenNhaCungCap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblSoDienThoai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblMaSoThue)
-                    .addComponent(lblDiaChi)
                     .addComponent(txtMaSoThue)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                    .addComponent(lblMaSoThue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblDiaChi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(217, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -358,19 +359,19 @@ public class Form4 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnMoiActionPerformed
 
     private void btnDauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDauActionPerformed
-    this.first();
+        this.first();
     }//GEN-LAST:event_btnDauActionPerformed
 
     private void btnLuiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuiActionPerformed
-    this.prev();
+        this.prev();
     }//GEN-LAST:event_btnLuiActionPerformed
 
     private void btnTienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTienActionPerformed
-    this.next();
+        this.next();
     }//GEN-LAST:event_btnTienActionPerformed
 
     private void btnCuoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuoiActionPerformed
-    this.last();
+        this.last();
     }//GEN-LAST:event_btnCuoiActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -448,35 +449,39 @@ public class Form4 extends javax.swing.JPanel {
     }
 
     private void insert() {
-        if (!Auth.isAdmin()) {
-            MsgBox.alert(this, "Chỉ admin được thêm nhà cung cấp!");
-        } else {
-            ModelNhaCungCap ncc = getForm();
-            try {
-                nccdao.insert(ncc);
-                this.fillTable();
-                this.clearForm();
-                MsgBox.alert(this, "Thêm mới thành công!");
-            } catch (Exception e) {
-                MsgBox.alert(this, "Thêm mới thất bại!");
-                throw new RuntimeException(e);
+        if (check()) {
+            if (!Auth.isAdmin()) {
+                MsgBox.alert(this, "Chỉ admin được thêm nhà cung cấp!");
+            } else {
+                ModelNhaCungCap ncc = getForm();
+                try {
+                    nccdao.insert(ncc);
+                    this.fillTable();
+                    this.clearForm();
+                    MsgBox.alert(this, "Thêm mới thành công!");
+                } catch (Exception e) {
+                    MsgBox.alert(this, "Thêm mới thất bại!");
+                    throw new RuntimeException(e);
+                }
             }
         }
     }
 
     private void update() {
-        if (!Auth.isAdmin()) {
-            MsgBox.alert(this, "Chỉ admin được cập nhật nhà cung cấp!");
-        } else {
-            ModelNhaCungCap ncc = getForm();
-            try {
-                nccdao.update(ncc);
-                this.fillTable();
-                this.clearForm();
-                MsgBox.alert(this, "Thêm mới thành công!");
-            } catch (Exception e) {
-                MsgBox.alert(this, "Thêm mới thất bại!");
-                throw new RuntimeException(e);
+        if (check()) {
+            if (!Auth.isAdmin()) {
+                MsgBox.alert(this, "Chỉ admin được cập nhật nhà cung cấp!");
+            } else {
+                ModelNhaCungCap ncc = getForm();
+                try {
+                    nccdao.update(ncc);
+                    this.fillTable();
+                    this.clearForm();
+                    MsgBox.alert(this, "Thêm mới thành công!");
+                } catch (Exception e) {
+                    MsgBox.alert(this, "Thêm mới thất bại!");
+                    throw new RuntimeException(e);
+                }
             }
         }
     }
@@ -554,5 +559,81 @@ public class Form4 extends javax.swing.JPanel {
         btnLui.setEnabled(edit && !first);
         btnTien.setEnabled(edit && !last);
         btnCuoi.setEnabled(edit && !last);
+    }
+
+    private boolean check() {
+        boolean kq = true;
+        Font font = new Font("SansSerif", Font.ITALIC, 12); // Tạo một font chữ nghiêng với kích cỡ 16
+        String regex = "^0\\d{9}$";
+        String regexE = "^[A-Za-z0-9.]+@[A-Za-z0-9.]+\\.[A-Za-z]{2,}$";
+
+        lblTenNhaCungCap.setText("Tên nhà cung cấp");
+        lblEmail.setText("Email");
+        lblSoDienThoai.setText("Số điện thoại");
+        lblMaSoThue.setText("Mã số thuế");
+        lblDiaChi.setText("Địa chỉ");
+
+        lblTenNhaCungCap.setForeground(Color.black);
+        lblEmail.setForeground(Color.black);
+        lblSoDienThoai.setForeground(Color.black);
+        lblMaSoThue.setForeground(Color.black);
+        lblDiaChi.setForeground(Color.black);
+
+        if (txtTenNhaCungCap.getText().isBlank()) {
+            lblTenNhaCungCap.setText("*Nhập tên nhà cung cấp");
+            lblTenNhaCungCap.setForeground(Color.red);
+            lblTenNhaCungCap.setFont(font);
+            kq = false;
+        }
+
+        if (txtMaSoThue.getText().isBlank()) {
+            lblMaSoThue.setText("*Nhập mã số thuế");
+            lblMaSoThue.setForeground(Color.red);
+            lblMaSoThue.setFont(font);
+            kq = false;
+        }
+
+        if (txtEmail.getText().isBlank()) {
+            lblEmail.setText("*Nhập tên nhà cung cấp");
+            lblEmail.setForeground(Color.red);
+            lblEmail.setFont(font);
+            kq = false;
+        }
+
+        if (txtEmail.getText().matches(regex)) {
+            lblEmail.setText("*Email không hợp lệ");
+            lblEmail.setForeground(Color.red);
+            lblEmail.setFont(font);
+            kq = false;
+        }
+
+        try {
+            if (txtSoDienThoai.getText().isBlank()) {
+                lblSoDienThoai.setText("*Nhập số điên thoại");
+                lblSoDienThoai.setForeground(Color.red);
+                lblSoDienThoai.setFont(font);
+                kq = false;
+            }
+
+            if (txtSoDienThoai.getText().matches(regex)) {
+                lblSoDienThoai.setText("*Không hợp lệ");
+                lblSoDienThoai.setForeground(Color.red);
+                lblSoDienThoai.setFont(font);
+                kq = false;
+            }
+        } catch (Exception e) {
+            lblSoDienThoai.setText("*Số điện thoại phải là số");
+            lblSoDienThoai.setForeground(Color.red);
+            lblSoDienThoai.setFont(font);
+            kq = false;
+        }
+
+        if (txtDiaChi.getText().isBlank()) {
+            lblDiaChi.setText("*Nhập địa chỉ");
+            lblDiaChi.setForeground(Color.red);
+            lblDiaChi.setFont(font);
+            kq = false;
+        }
+        return kq;
     }
 }

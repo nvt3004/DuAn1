@@ -639,13 +639,6 @@ public class Form1SanPham extends javax.swing.JPanel {
         }
 
         try {
-            if (txtGiaKhuyenMai.getText().isBlank()) {
-                lblGiaKhuyenMai.setText("*Nhập giá khuyến mãi");
-                lblGiaKhuyenMai.setForeground(Color.red);
-                lblGiaKhuyenMai.setFont(font);
-                kq = false;
-            }
-
             if (txtGiaKhuyenMai.getText().matches(regex)) {
                 lblGiaKhuyenMai.setText("*Không chứa ký tự đặt biệt và chữ");
                 lblGiaKhuyenMai.setForeground(Color.red);
@@ -663,13 +656,6 @@ public class Form1SanPham extends javax.swing.JPanel {
             lblDonViTinh.setText("*Chọn đơn vị tính");
             lblDonViTinh.setForeground(Color.red);
             lblDonViTinh.setFont(font);
-            kq = false;
-        }
-
-        if (txtMaVach.getText().isBlank()) {
-            lblMaVach.setText("*Nhập mã vạch");
-            lblMaVach.setForeground(Color.red);
-            lblMaVach.setFont(font);
             kq = false;
         }
 
@@ -719,20 +705,6 @@ public class Form1SanPham extends javax.swing.JPanel {
             lblSoLuong.setText("*Số lượng phải là số");
             lblSoLuong.setForeground(Color.red);
             lblSoLuong.setFont(font);
-            kq = false;
-        }
-
-        if (txtMoTa.getText().isBlank()) {
-            lblMoTa.setText("*Nhập mô tả");
-            lblMoTa.setForeground(Color.red);
-            lblMoTa.setFont(font);
-            kq = false;
-        }
-        
-        if(lblHinhAnh.getIcon() == null){
-            lblAnh.setText("*Vui lòng chọn ảnh");
-            lblAnh.setForeground(Color.red);
-            lblAnh.setFont(font);
             kq = false;
         }
 

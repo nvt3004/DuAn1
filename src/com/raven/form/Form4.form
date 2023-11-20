@@ -272,24 +272,24 @@
               <Group type="102" attributes="0">
                   <EmptySpace pref="218" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblNhaCungCap" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtMaNhaCungCap" alignment="0" min="-2" pref="245" max="-2" attributes="0"/>
+                      <Component id="txtMaNhaCungCap" alignment="0" pref="245" max="32767" attributes="0"/>
+                      <Component id="lblNhaCungCap" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblEmail" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="216" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="lblTenNhaCungCap" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblSoDienThoai" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="txtSoDienThoai" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtTenNhaCungCap" alignment="0" min="-2" pref="245" max="-2" attributes="0"/>
+                      <Component id="txtTenNhaCungCap" alignment="0" pref="245" max="32767" attributes="0"/>
+                      <Component id="lblTenNhaCungCap" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblSoDienThoai" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="216" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="lblMaSoThue" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblDiaChi" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="txtMaSoThue" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jScrollPane2" alignment="0" min="-2" pref="245" max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" alignment="0" pref="245" max="32767" attributes="0"/>
+                      <Component id="lblMaSoThue" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblDiaChi" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="217" max="32767" attributes="0"/>
               </Group>
